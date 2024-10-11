@@ -8,17 +8,14 @@ using System.Threading.Tasks;
 
 namespace WarehouseModels.Models
 {
-    public class Product
+    public class Category
     {
         [Key]
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public decimal Price { get; set; }
-        public string Description { get; set; }
-        public int StockQuantity { get; set; }
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        [ForeignKey("ProductId")]
+        [ForeignKey("CategoryId")]
         public virtual ICollection<ProductCategory> ProductCategory { get; set; }
     }
 }
