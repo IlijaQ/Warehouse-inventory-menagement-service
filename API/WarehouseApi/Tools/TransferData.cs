@@ -51,5 +51,16 @@ namespace WarehouseApi.Tools
             product.StockQuantity = data.Quantity;
             product.CreatedAt = data.CreatedAt;
         }
+
+        public static CategoryData CategoryToDto(Category category)
+        {
+            CategoryData data = new CategoryData();
+
+            data.Id = category.CategoryId;
+            data.Name = category.CategoryName;
+            data.CreatedAt = category.CreatedAt;
+
+            return data;
+        }
     }
 }

@@ -172,5 +172,20 @@ namespace WarehouseApi.Repository
             await _context.SaveChangesAsync();
             return true;
         }
+
+        public async Task<IEnumerable<CategoryData>> GetAllCategories()
+        {
+            var categories = await _context.Category.ToListAsync();
+
+            List<CategoryData> categoriesInDTOs = new List<CategoryData>();
+
+            foreach (Category c in categories)
+            {
+                CategoryData dataTransferObject = TransferData.CategoryToDto(c);
+                categoriesInDTOs.Add(dataTransferObject);
+            }
+
+            return categoriesInDTOs;
+        }
     }
 }

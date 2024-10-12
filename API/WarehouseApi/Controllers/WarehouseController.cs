@@ -95,5 +95,13 @@ namespace WarehouseApi.Controllers
                 return StatusCode(500, $"An error occurred while deleting the product: {ex.Message}");
             }
         }
+
+        //[HttpGet("Get categories")]
+        [HttpPost("Get categories")]
+        public async Task<IActionResult> GetCategories()
+        {
+            var categories = await _repository.GetAllCategories();
+            return Ok(categories);
+        }
     }
 }
