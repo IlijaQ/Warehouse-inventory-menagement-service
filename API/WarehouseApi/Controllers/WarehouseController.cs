@@ -15,7 +15,8 @@ namespace WarehouseApi.Controllers
         {
             _repository = repository;
         }
-        [HttpPost]
+
+        [HttpPost("Create products")]
         public async Task<IActionResult> CreateProduct([FromBody] ProductData productData)
         {
             if (productData == null)
@@ -28,7 +29,7 @@ namespace WarehouseApi.Controllers
                 await _repository.CreateAsync(productData);
                 return StatusCode(201);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return StatusCode(500, $"An error occurred while creating the product: {ex.Message}");
             }
@@ -43,12 +44,31 @@ namespace WarehouseApi.Controllers
 
             try
             {
-                await _repository.UpdateAsync(productData);
-                return StatusCode(200);
+                bool foundAndUpdated = await _repository.UpdateAsync(productData);
+                if (foundAndUpdated)
+                    return StatusCode(200);
+                else
+                    return StatusCode(404);
             }
             catch (Exception ex)
             {
                 return StatusCode(500, $"An error occurred while creating the product: {ex.Message}");
+            }
+        }
+        [HttpDelete]
+        public async Task<IActionResult> DeleteProduct([FromBody] int id)
+        {
+            try
+            {
+                bool foundAndRemoved = await _repository.DeleteAsync(id);
+                if (foundAndRemoved)
+                    return StatusCode(200);
+                else
+                    return StatusCode(404);
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, $"An error occurred while deleting the product: {ex.Message}");
             }
         }
     }

@@ -8,7 +8,7 @@ namespace WarehouseApi.Repository
         Task CreateAsync(ProductData productData);
         Task<Product> GetByIdAsync(int id);
         Task<IEnumerable<ProductData>> GetAllAsync(SearchFilters searchFilters);
-        Task UpdateAsync(ProductData productData);
-        Task DeleteAsync(int id);
+        Task<bool> UpdateAsync(ProductData productData);
+        Task<bool> DeleteAsync(int id);
     }
 }

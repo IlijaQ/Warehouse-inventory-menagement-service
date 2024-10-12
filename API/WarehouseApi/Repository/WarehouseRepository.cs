@@ -116,7 +116,30 @@ namespace WarehouseApi.Repository
             }
         }
 
+        public async Task<bool> DeleteAsync(int id)
+        {
+            if (id == null)
+                return false;
 
+            var product = await _context.Product.FindAsync(id);
+            var productCategory = from p in _context.ProductCategory
+                                  where p.ProductId == id
+                                  select p;
+            var productCategories = await productCategory.ToListAsync();
+
+            if (product == null)
+                return false;
+
+            _context.Product.Remove(product);
+
+            foreach (var pc in productCategories)
+            {
+                if (product.ProductId == pc.ProductId)
+                    _context.ProductCategory.Remove(pc);
+            }
+
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }
