@@ -17,5 +17,12 @@ namespace WarehouseApi.Repository
         {
             _context = context;
         }
+        public async Task CreateAsync(ProductData productData)
+        {
+            Product newProduct = TransferData.FromDtoToProduct(productData);
+
+            _context.Product.Add(newProduct);
+            await _context.SaveChangesAsync();
+        }
     }
 }
