@@ -24,11 +24,60 @@ namespace WarehouseApi.Repository
             _context.Product.Add(newProduct);
             await _context.SaveChangesAsync();
         }
+        public async Task<IEnumerable<ProductData>> GetAllAsync(SearchFilters searchFilter)
+        {
+            var productsQuery = _context.Product.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchFilter.Name))
+            {
+                productsQuery = productsQuery
+                    .Where(p => p.ProductName.Contains(searchFilter.Name, StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (searchFilter.DateTimeAfter != null)
+            {
+                productsQuery = productsQuery.Where(p => p.CreatedAt > searchFilter.DateTimeAfter);
+            }
+            if (searchFilter.DateTimeBefore != null)
+            {
+                productsQuery = productsQuery.Where(p => p.CreatedAt < searchFilter.DateTimeBefore);
+            }
+
+            if (searchFilter.PriceFrom != null)
+            {
+                productsQuery = productsQuery.Where(p => p.Price > searchFilter.PriceFrom);
+            }
+            if (searchFilter.PriceTo != null)
+            {
+                productsQuery = productsQuery.Where(p => p.Price < searchFilter.PriceTo);
+            }
+
+            if (searchFilter.StockMoreThan != null)
+            {
+                productsQuery = productsQuery.Where(p => p.StockQuantity > searchFilter.StockMoreThan);
+            }
+            if (searchFilter.StockLessThan != null)
+            {
+                productsQuery = productsQuery.Where(p => p.StockQuantity < searchFilter.StockLessThan);
+            }
+
+            var queryResults = await productsQuery.ToListAsync();
+
+            List<ProductData> resultsInDTOs = new List<ProductData>();
+
+            foreach (Product product in queryResults)
+            {
+                ProductData dataTransferObject = TransferData.ProductToDto(product);
+                resultsInDTOs.Add(dataTransferObject);
+            }
+
+            return resultsInDTOs;
+        }
         public async Task UpdateAsync(ProductData productData)
         {
             var productToUpdate = await _context.Product
                 .Include(cp => cp.ProductCategory)
-                .FirstOrDefaultAsync(p => p.ProductId == productData.ProductId);
+                .FirstOrDefaultAsync(p => p.ProductId == productData.Id);
 
             if (productToUpdate == null)
             {
@@ -36,9 +85,6 @@ namespace WarehouseApi.Repository
             }
 
             var currentCategoryIds = productToUpdate.ProductCategory.Select(pc => pc.CategoryId).ToList();
-
-            productToUpdate = TransferData.FromDtoToProduct(productData);
-
             var categoriesToAdd = productData.CheckedCategoryIds.Except(currentCategoryIds).ToList();
             var categoriesToRemove = currentCategoryIds.Except(productData.CheckedCategoryIds).ToList();
 
@@ -51,8 +97,10 @@ namespace WarehouseApi.Repository
 
             foreach (var categoryId in categoriesToAdd)
             {
-                _context.ProductCategory.Add(new ProductCategory{ ProductId = productData.ProductId, CategoryId = categoryId });
+                _context.ProductCategory.Add(new ProductCategory{ ProductId = productData.Id, CategoryId = categoryId });
             }
+
+            productToUpdate = TransferData.FromDtoToProduct(productData);
 
             await _context.SaveChangesAsync();
         }
