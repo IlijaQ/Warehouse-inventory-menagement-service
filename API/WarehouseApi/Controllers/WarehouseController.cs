@@ -33,5 +33,23 @@ namespace WarehouseApi.Controllers
                 return StatusCode(500, $"An error occurred while creating the product: {ex.Message}");
             }
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateProduct([FromBody] ProductData productData)
+        {
+            if (productData == null)
+            {
+                return BadRequest("Invalid product data.");
+            }
+
+            try
+            {
+                await _repository.UpdateAsync(productData);
+                return StatusCode(200);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred while creating the product: {ex.Message}");
+            }
+        }
     }
 }
