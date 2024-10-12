@@ -6,6 +6,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WarehouseApi.DataTransferClasses;
 using WarehouseApi.Tools;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace WarehouseApi.Repository
 {
@@ -17,6 +19,7 @@ namespace WarehouseApi.Repository
         {
             _context = context;
         }
+
         public async Task CreateAsync(ProductData productData)
         {
             Product newProduct = TransferData.FromDtoToProduct(productData);
@@ -24,6 +27,7 @@ namespace WarehouseApi.Repository
             _context.Product.Add(newProduct);
             await _context.SaveChangesAsync();
         }
+
         public async Task<IEnumerable<ProductData>> GetAllAsync(SearchFilters searchFilter)
         {
             var productsQuery = _context.Product.AsQueryable();
@@ -80,7 +84,34 @@ namespace WarehouseApi.Repository
             return productsQuery;
         }
 
-        public async Task UpdateAsync(ProductData productData)
+        public async Task<ProductAndCategoryData> GetByIdAsync(int id)
+        {
+            var product = await _context.Product
+                .Include(pc => pc.ProductCategory)
+                .ThenInclude(c => c.Category)
+                .FirstOrDefaultAsync(p => p.ProductId == id);
+
+            ProductAndCategoryData productDto = new ProductAndCategoryData
+            {
+                Id = product.ProductId,
+                Name = product.ProductName,
+                Price = product.Price,
+                Description = product.Description,
+                Quantity = product.StockQuantity,
+                CreatedAt = product.CreatedAt,
+                CategoryList = product.ProductCategory
+                    .Select(pc => new CategoryData
+                    {
+                        Id = pc.Category.CategoryId,
+                        Name = pc.Category.CategoryName,
+                        CreatedAt = pc.Category.CreatedAt
+                    }).ToList()
+            };
+
+            return productDto;
+        }
+
+        public async Task<bool> UpdateAsync(ProductData productData)
         {
             var productToUpdate = await _context.Product
                 .Include(cp => cp.ProductCategory)
@@ -88,14 +119,14 @@ namespace WarehouseApi.Repository
 
             if (productToUpdate == null)
             {
-                return;
+                return false;
             }
 
             UpdateBridgingTable(productData, productToUpdate);
-
-            productToUpdate = TransferData.FromDtoToProduct(productData);
+            TransferData.UpdateProductFrom(productData, productToUpdate);
 
             await _context.SaveChangesAsync();
+            return true;
         }
         private void UpdateBridgingTable(ProductData productData, Product productToUpdate)
         {

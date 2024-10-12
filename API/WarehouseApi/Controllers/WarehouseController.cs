@@ -34,7 +34,29 @@ namespace WarehouseApi.Controllers
                 return StatusCode(500, $"An error occurred while creating the product: {ex.Message}");
             }
         }
-        [HttpPut("{id}")]
+
+        //[HttpGet("GetProductById")]
+        [HttpPost("GetProductById")]
+        public async Task<IActionResult> GetProductById([FromBody] int id)
+        {
+            var product = await _repository.GetByIdAsync(id);
+            if (product == null)
+            {
+                return StatusCode(404);
+            }
+            return Ok(product);
+        }
+
+        //[HttpGet("Get products")]
+        [HttpPost("Get products")]
+        public async Task<IActionResult> GetAllProducts([FromBody] SearchFilters searchFilters)
+        {
+            var products = await _repository.GetAllAsync(searchFilters);
+            return Ok(products);
+        }
+
+        //[HttpPut("{id}")]
+        [HttpPut("Update Product")]
         public async Task<IActionResult> UpdateProduct([FromBody] ProductData productData)
         {
             if (productData == null)
@@ -55,6 +77,8 @@ namespace WarehouseApi.Controllers
                 return StatusCode(500, $"An error occurred while creating the product: {ex.Message}");
             }
         }
+
+        //[HttpDelete("{id}")]
         [HttpDelete]
         public async Task<IActionResult> DeleteProduct([FromBody] int id)
         {
