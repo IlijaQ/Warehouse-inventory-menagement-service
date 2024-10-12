@@ -34,6 +34,22 @@ namespace WarehouseApi.Repository
                     .Where(p => p.ProductName.Contains(searchFilter.Name, StringComparison.OrdinalIgnoreCase));
             }
 
+            productsQuery = ApplyFilters(searchFilter, productsQuery);
+
+            var queryResults = await productsQuery.ToListAsync();
+
+            List<ProductData> resultsInDTOs = new List<ProductData>();
+
+            foreach (Product product in queryResults)
+            {
+                ProductData dataTransferObject = TransferData.ProductToDto(product);
+                resultsInDTOs.Add(dataTransferObject);
+            }
+
+            return resultsInDTOs;
+        }
+        private static IQueryable<Product> ApplyFilters(SearchFilters searchFilter, IQueryable<Product> productsQuery)
+        {
             if (searchFilter.DateTimeAfter != null)
             {
                 productsQuery = productsQuery.Where(p => p.CreatedAt > searchFilter.DateTimeAfter);
@@ -61,18 +77,9 @@ namespace WarehouseApi.Repository
                 productsQuery = productsQuery.Where(p => p.StockQuantity < searchFilter.StockLessThan);
             }
 
-            var queryResults = await productsQuery.ToListAsync();
-
-            List<ProductData> resultsInDTOs = new List<ProductData>();
-
-            foreach (Product product in queryResults)
-            {
-                ProductData dataTransferObject = TransferData.ProductToDto(product);
-                resultsInDTOs.Add(dataTransferObject);
-            }
-
-            return resultsInDTOs;
+            return productsQuery;
         }
+
         public async Task UpdateAsync(ProductData productData)
         {
             var productToUpdate = await _context.Product
@@ -84,6 +91,14 @@ namespace WarehouseApi.Repository
                 return;
             }
 
+            UpdateBridgingTable(productData, productToUpdate);
+
+            productToUpdate = TransferData.FromDtoToProduct(productData);
+
+            await _context.SaveChangesAsync();
+        }
+        private void UpdateBridgingTable(ProductData productData, Product productToUpdate)
+        {
             var currentCategoryIds = productToUpdate.ProductCategory.Select(pc => pc.CategoryId).ToList();
             var categoriesToAdd = productData.CheckedCategoryIds.Except(currentCategoryIds).ToList();
             var categoriesToRemove = currentCategoryIds.Except(productData.CheckedCategoryIds).ToList();
@@ -97,12 +112,11 @@ namespace WarehouseApi.Repository
 
             foreach (var categoryId in categoriesToAdd)
             {
-                _context.ProductCategory.Add(new ProductCategory{ ProductId = productData.Id, CategoryId = categoryId });
+                _context.ProductCategory.Add(new ProductCategory { ProductId = productData.Id, CategoryId = categoryId });
             }
+        }
 
-            productToUpdate = TransferData.FromDtoToProduct(productData);
 
-            await _context.SaveChangesAsync();
         }
     }
 }
