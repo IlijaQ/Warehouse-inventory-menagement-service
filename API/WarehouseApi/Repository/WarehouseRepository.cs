@@ -9,7 +9,7 @@ using WarehouseApi.Tools;
 
 namespace WarehouseApi.Repository
 {
-    public class WarehouseRepository
+    public class WarehouseRepository : IWarehouseRepository
     {
         private readonly WarehouseContext _context;
 
