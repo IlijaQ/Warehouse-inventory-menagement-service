@@ -33,9 +33,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             this.lblProductName = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblQuantity = new System.Windows.Forms.Label();
@@ -98,45 +98,45 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Created at";
             // 
-            // label6
+            // lblDescription
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(57, 270);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 20);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Description";
-            this.label6.Visible = false;
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Location = new System.Drawing.Point(57, 270);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(106, 20);
+            this.lblDescription.TabIndex = 5;
+            this.lblDescription.Text = "Description";
+            this.lblDescription.Visible = false;
             // 
             // tbDescription
             // 
             this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDescription.Location = new System.Drawing.Point(169, 270);
+            this.tbDescription.Location = new System.Drawing.Point(210, 270);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.ReadOnly = true;
-            this.tbDescription.Size = new System.Drawing.Size(587, 270);
+            this.tbDescription.Size = new System.Drawing.Size(546, 270);
             this.tbDescription.TabIndex = 6;
             this.tbDescription.Visible = false;
             // 
-            // label7
+            // lblId
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(169, 62);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(22, 20);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "id";
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(206, 62);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(22, 20);
+            this.lblId.TabIndex = 7;
+            this.lblId.Text = "id";
             // 
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
             this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductName.Location = new System.Drawing.Point(169, 101);
+            this.lblProductName.Location = new System.Drawing.Point(206, 101);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(53, 20);
             this.lblProductName.TabIndex = 8;
@@ -146,7 +146,7 @@
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(169, 141);
+            this.lblPrice.Location = new System.Drawing.Point(206, 141);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(48, 20);
             this.lblPrice.TabIndex = 9;
@@ -156,7 +156,7 @@
             // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(169, 181);
+            this.lblQuantity.Location = new System.Drawing.Point(206, 181);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(71, 20);
             this.lblQuantity.TabIndex = 10;
@@ -166,7 +166,7 @@
             // 
             this.lblProductCreatedAt.AutoSize = true;
             this.lblProductCreatedAt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductCreatedAt.Location = new System.Drawing.Point(169, 225);
+            this.lblProductCreatedAt.Location = new System.Drawing.Point(206, 225);
             this.lblProductCreatedAt.Name = "lblProductCreatedAt";
             this.lblProductCreatedAt.Size = new System.Drawing.Size(87, 20);
             this.lblProductCreatedAt.TabIndex = 11;
@@ -182,7 +182,6 @@
             this.tbCategories.ReadOnly = true;
             this.tbCategories.Size = new System.Drawing.Size(508, 439);
             this.tbCategories.TabIndex = 12;
-            this.tbCategories.Visible = false;
             // 
             // label8
             // 
@@ -233,11 +232,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(950, 297);
+            this.lblSearch.Location = new System.Drawing.Point(641, 239);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(152, 18);
-            this.lblSearch.TabIndex = 25;
-            this.lblSearch.Text = "Fetching Categories...";
+            this.lblSearch.Size = new System.Drawing.Size(86, 18);
+            this.lblSearch.TabIndex = 26;
+            this.lblSearch.Text = "Searching...";
             this.lblSearch.Visible = false;
             // 
             // ProductDetails
@@ -255,9 +254,9 @@
             this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblProductName);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.tbDescription);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -278,9 +277,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.TextBox tbDescription;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblQuantity;

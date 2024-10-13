@@ -12,6 +12,6 @@ namespace WarehouseUI.Models
         public string CategoryName { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        public virtual ICollection<ProductCategory> ProductCategory { get; set; }
+        public virtual ICollection<ProductAndCategories> ProductCategory { get; set; }
     }
 }

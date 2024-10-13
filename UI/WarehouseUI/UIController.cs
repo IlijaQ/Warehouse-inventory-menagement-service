@@ -31,5 +31,11 @@ namespace WarehouseUI
             bool success = await repository.CreateProductAsync(productDto);
             return success;
         }
+
+        public static async Task<ProductAndCategories> GetProductById(string productIdInString)
+        {
+            ApiRepository repository = new ApiRepository();
+            return await repository.GetProductByIdAsync(productIdInString);
+        }
     }
 }

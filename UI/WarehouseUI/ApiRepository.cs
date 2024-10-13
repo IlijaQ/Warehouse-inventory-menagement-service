@@ -113,5 +113,28 @@ namespace WarehouseUI
                 throw new HttpRequestException($"Error: {response.StatusCode}, {response.ReasonPhrase}");
             }
         }
+
+        public async Task<ProductAndCategories> GetProductByIdAsync(string productIdInString)
+        {
+            ProductAndCategories result = new ProductAndCategories();
+
+            //var jsonContent = JsonConvert.SerializeObject(new { id = productIdInString });
+            //HttpContent content = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await _httpClient.GetAsync($"api/warehouse/GetProductById/{productIdInString}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                string responseJson = await response.Content.ReadAsStringAsync();
+
+                result = JsonConvert.DeserializeObject<ProductAndCategories>(responseJson);
+
+                return result;
+            }
+            else
+            {
+                throw new HttpRequestException($"Error: {response.StatusCode}, {response.ReasonPhrase}");
+            }
+        }
     }
 }

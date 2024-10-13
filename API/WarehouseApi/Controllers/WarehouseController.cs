@@ -2,6 +2,7 @@
 using WarehouseApi.Repository;
 using WarehouseApi.DataTransferClasses;
 using WarehouseModels.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WarehouseApi.Controllers
 {
@@ -16,7 +17,7 @@ namespace WarehouseApi.Controllers
             _repository = repository;
         }
 
-        [HttpPost("Create products")]
+        [HttpPost("CreateProduct")]
         public async Task<IActionResult> CreateProduct([FromBody] ProductData productData)
         {
             if (productData == null)
@@ -34,10 +35,9 @@ namespace WarehouseApi.Controllers
                 return StatusCode(500, $"An error occurred while creating the product: {ex.Message}");
             }
         }
-
-        //[HttpGet("GetProductById")]
-        [HttpPost("GetProductById")]
-        public async Task<IActionResult> GetProductById([FromBody] int id)
+        
+        [HttpGet("GetProductById/{id}")]
+        public async Task<IActionResult> GetProductById(int id)
         {
             var product = await _repository.GetByIdAsync(id);
             if (product == null)
@@ -54,7 +54,6 @@ namespace WarehouseApi.Controllers
             return Ok(products);
         }
 
-        //[HttpPut("{id}")]
         [HttpPut("Update Product")]
         public async Task<IActionResult> UpdateProduct([FromBody] ProductData productData)
         {
@@ -95,8 +94,7 @@ namespace WarehouseApi.Controllers
             }
         }
 
-        //[HttpGet("Get categories")]
-        [HttpPost("Get categories")]
+        [HttpGet("GetCategories")]
         public async Task<IActionResult> GetCategories()
         {
             var categories = await _repository.GetAllCategories();

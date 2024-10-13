@@ -57,7 +57,7 @@
     <Compile Include="IUsesCreateEditForm.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Models\ProductAndCategories.cs" />
     <Compile Include="Tools\TransferData.cs" />
     <Compile Include="ProductDetails.cs">
       <SubType>Form</SubType>

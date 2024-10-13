@@ -83,10 +83,10 @@ namespace WarehouseUI
             
             dgvProductsView.Columns["CreatedAt"].DefaultCellStyle.Format = "dd.MM.yyyy. HH:mm";
 
-            dgvProductsView.Columns["ProductName"].Name = "Product Name";
-            dgvProductsView.Columns["Price"].Name = "Price $";
-            dgvProductsView.Columns["StockQuantity"].Name = "Quantity";
-            dgvProductsView.Columns["CreatedAt"].Name = "Created At";
+            dgvProductsView.Columns["ProductName"].HeaderText = "Product Name";
+            dgvProductsView.Columns["Price"].HeaderText = "Price $";
+            dgvProductsView.Columns["StockQuantity"].HeaderText = "Quantity";
+            dgvProductsView.Columns["CreatedAt"].HeaderText = "Created At";
 
             DataGridViewButtonColumn rowButton = new DataGridViewButtonColumn();
             rowButton.Name = "More";
@@ -189,15 +189,21 @@ namespace WarehouseUI
             if (targetBaseUrl.Length > 0 && targetBaseUrl[indexOfLastChar] != '/')
                 targetBaseUrl = targetBaseUrl + "/";
             
-            if (targetBaseUrl.Contains("swagger/index.html"))
-                targetBaseUrl = targetBaseUrl.Remove(targetBaseUrl.IndexOf("swagger/index.html"));
-            
             Target.Url = tbTargetUrl.Text;
         }
 
         private void dgvProductsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+                return;
 
+            if (dgvProductsView.Columns[e.ColumnIndex].Name == "More")
+            {
+                string productIdInString = dgvProductsView.Rows[e.RowIndex].Cells["ProductId"].Value.ToString().Trim();
+
+                ProductDetails dialog = new ProductDetails(productIdInString);
+                dialog.Show();
+            }
         }
     }
 }
