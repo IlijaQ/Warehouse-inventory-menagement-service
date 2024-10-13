@@ -1,6 +1,6 @@
 ﻿namespace WarehouseUI
 {
-    partial class lblProductId
+    partial class ProductCreateUpdate
     {
         /// <summary>
         /// Required designer variable.

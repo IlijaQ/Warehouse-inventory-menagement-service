@@ -1,6 +1,6 @@
 ﻿namespace WarehouseUI
 {
-    partial class lblProductId
+    partial class ProductDetails
     {
         /// <summary>
         /// Required designer variable.

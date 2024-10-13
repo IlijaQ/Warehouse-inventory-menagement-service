@@ -32,12 +32,6 @@ namespace WarehouseApi.Repository
         {
             var productsQuery = _context.Product.AsQueryable();
 
-            if (!string.IsNullOrEmpty(searchFilter.Name))
-            {
-                productsQuery = productsQuery
-                    .Where(p => p.ProductName.Contains(searchFilter.Name, StringComparison.OrdinalIgnoreCase));
-            }
-
             productsQuery = ApplyFilters(searchFilter, productsQuery);
 
             var queryResults = await productsQuery.ToListAsync();
@@ -54,6 +48,12 @@ namespace WarehouseApi.Repository
         }
         private static IQueryable<Product> ApplyFilters(SearchFilters searchFilter, IQueryable<Product> productsQuery)
         {
+            if (!string.IsNullOrEmpty(searchFilter.Name))
+            {
+                productsQuery = productsQuery
+                    .Where(p => p.ProductName.Contains(searchFilter.Name, StringComparison.OrdinalIgnoreCase));
+            }
+
             if (searchFilter.DateTimeAfter != null)
             {
                 productsQuery = productsQuery.Where(p => p.CreatedAt > searchFilter.DateTimeAfter);

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WarehouseUI
 {
-    public partial class lblProductId : Form
+    public partial class ProductCreateUpdate : Form
     {
-        public lblProductId()
+        public ProductCreateUpdate()
         {
             InitializeComponent();
         }
