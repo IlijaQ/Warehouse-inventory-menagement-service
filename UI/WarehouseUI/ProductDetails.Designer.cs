@@ -35,18 +35,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblProductName = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblQuantity = new System.Windows.Forms.Label();
+            this.lblProductCreatedAt = new System.Windows.Forms.Label();
+            this.tbCategories = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.tbProductName = new System.Windows.Forms.TextBox();
-            this.numProductPrice = new System.Windows.Forms.NumericUpDown();
-            this.numProductQuantity = new System.Windows.Forms.NumericUpDown();
-            this.dtProductCreatedAt = new System.Windows.Forms.DateTimePicker();
-            this.cbCategories = new System.Windows.Forms.CheckedListBox();
-            this.lblId = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numProductPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numProductQuantity)).BeginInit();
+            this.lblSearch = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -118,15 +117,79 @@
             this.tbDescription.Location = new System.Drawing.Point(169, 270);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(744, 275);
+            this.tbDescription.ReadOnly = true;
+            this.tbDescription.Size = new System.Drawing.Size(587, 270);
             this.tbDescription.TabIndex = 6;
+            this.tbDescription.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(169, 62);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(22, 20);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "id";
+            // 
+            // lblProductName
+            // 
+            this.lblProductName.AutoSize = true;
+            this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductName.Location = new System.Drawing.Point(169, 101);
+            this.lblProductName.Name = "lblProductName";
+            this.lblProductName.Size = new System.Drawing.Size(53, 20);
+            this.lblProductName.TabIndex = 8;
+            this.lblProductName.Text = "Name";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Location = new System.Drawing.Point(169, 141);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(48, 20);
+            this.lblPrice.TabIndex = 9;
+            this.lblPrice.Text = "Price";
+            // 
+            // lblQuantity
+            // 
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantity.Location = new System.Drawing.Point(169, 181);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(71, 20);
+            this.lblQuantity.TabIndex = 10;
+            this.lblQuantity.Text = "Quantity";
+            // 
+            // lblProductCreatedAt
+            // 
+            this.lblProductCreatedAt.AutoSize = true;
+            this.lblProductCreatedAt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductCreatedAt.Location = new System.Drawing.Point(169, 225);
+            this.lblProductCreatedAt.Name = "lblProductCreatedAt";
+            this.lblProductCreatedAt.Size = new System.Drawing.Size(87, 20);
+            this.lblProductCreatedAt.TabIndex = 11;
+            this.lblProductCreatedAt.Text = "Created at";
+            // 
+            // tbCategories
+            // 
+            this.tbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbCategories.Location = new System.Drawing.Point(762, 101);
+            this.tbCategories.Multiline = true;
+            this.tbCategories.Name = "tbCategories";
+            this.tbCategories.ReadOnly = true;
+            this.tbCategories.Size = new System.Drawing.Size(508, 439);
+            this.tbCategories.TabIndex = 12;
+            this.tbCategories.Visible = false;
             // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(915, 62);
+            this.label8.Location = new System.Drawing.Point(758, 62);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 20);
             this.label8.TabIndex = 13;
@@ -142,6 +205,16 @@
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDelete.Location = new System.Drawing.Point(12, 552);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(152, 33);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -153,93 +226,36 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // tbProductName
+            // lblSearch
             // 
-            this.tbProductName.Location = new System.Drawing.Point(169, 101);
-            this.tbProductName.Name = "tbProductName";
-            this.tbProductName.Size = new System.Drawing.Size(308, 22);
-            this.tbProductName.TabIndex = 17;
-            // 
-            // numProductPrice
-            // 
-            this.numProductPrice.DecimalPlaces = 2;
-            this.numProductPrice.Location = new System.Drawing.Point(169, 142);
-            this.numProductPrice.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numProductPrice.Name = "numProductPrice";
-            this.numProductPrice.Size = new System.Drawing.Size(308, 22);
-            this.numProductPrice.TabIndex = 18;
-            // 
-            // numProductQuantity
-            // 
-            this.numProductQuantity.Location = new System.Drawing.Point(169, 182);
-            this.numProductQuantity.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numProductQuantity.Name = "numProductQuantity";
-            this.numProductQuantity.Size = new System.Drawing.Size(308, 22);
-            this.numProductQuantity.TabIndex = 19;
-            // 
-            // dtProductCreatedAt
-            // 
-            this.dtProductCreatedAt.Location = new System.Drawing.Point(169, 225);
-            this.dtProductCreatedAt.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
-            this.dtProductCreatedAt.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
-            this.dtProductCreatedAt.Name = "dtProductCreatedAt";
-            this.dtProductCreatedAt.Size = new System.Drawing.Size(308, 22);
-            this.dtProductCreatedAt.TabIndex = 20;
-            // 
-            // cbCategories
-            // 
-            this.cbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbCategories.FormattingEnabled = true;
-            this.cbCategories.Location = new System.Drawing.Point(919, 99);
-            this.cbCategories.Name = "cbCategories";
-            this.cbCategories.Size = new System.Drawing.Size(350, 446);
-            this.cbCategories.TabIndex = 21;
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.Location = new System.Drawing.Point(950, 297);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(152, 18);
+            this.lblSearch.TabIndex = 25;
+            this.lblSearch.Text = "Fetching Categories...";
+            this.lblSearch.Visible = false;
             // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.Location = new System.Drawing.Point(165, 62);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(128, 20);
-            this.lblId.TabIndex = 22;
-            this.lblId.Text = "To Be Assigned";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1095, 62);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(174, 20);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "select and/or deselect";
-            // 
-            // lblProductId
+            // ProductDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 597);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.lblId);
-            this.Controls.Add(this.cbCategories);
-            this.Controls.Add(this.dtProductCreatedAt);
-            this.Controls.Add(this.numProductQuantity);
-            this.Controls.Add(this.numProductPrice);
-            this.Controls.Add(this.tbProductName);
+            this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.tbCategories);
+            this.Controls.Add(this.lblProductCreatedAt);
+            this.Controls.Add(this.lblQuantity);
+            this.Controls.Add(this.lblPrice);
+            this.Controls.Add(this.lblProductName);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -248,10 +264,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(1300, 644);
-            this.Name = "lblProductId";
-            this.Text = "Product Create";
-            ((System.ComponentModel.ISupportInitialize)(this.numProductPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numProductQuantity)).EndInit();
+            this.Name = "ProductDetails";
+            this.Text = "Product Details";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,15 +280,16 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbDescription;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblProductName;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.Label lblProductCreatedAt;
+        private System.Windows.Forms.TextBox tbCategories;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.TextBox tbProductName;
-        private System.Windows.Forms.NumericUpDown numProductPrice;
-        private System.Windows.Forms.NumericUpDown numProductQuantity;
-        private System.Windows.Forms.DateTimePicker dtProductCreatedAt;
-        private System.Windows.Forms.CheckedListBox cbCategories;
-        private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblSearch;
     }
 }

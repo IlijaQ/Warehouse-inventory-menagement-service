@@ -19,14 +19,29 @@ namespace WarehouseUI
             dgvProductsView.AutoGenerateColumns = true;
         }
 
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(tbTargetUrl.Text.Trim()))
+            {
+                MessageBox.Show("Configure base url first.\r\nTextbox at the bottom right.");
+                return;
+            }
+            ProductCreate dialog = new ProductCreate(this);
+            dialog.ShowDialog();
+        }
+
         private async void btnSearch_Click(object sender, EventArgs e)
+        {
+            await SearchProducts();
+        }
+        public async Task SearchProducts()
         {
             lblSearch.Visible = true;
             dgvProductsView.DataSource = null;
-            
+
             SearchFilters filters = new SearchFilters();
             ApplyFilters(filters);
-            
+
             var results = await UIController.GetProducts(filters);
             dgvProductsView.DataSource = results;
 
@@ -36,6 +51,7 @@ namespace WarehouseUI
             lblCount.Visible = true;
             lblSearch.Visible = false;
         }
+
         private void ApplyFilters(SearchFilters filters)
         {
             if (!string.IsNullOrEmpty(tbSearchString.Text))
@@ -143,6 +159,10 @@ namespace WarehouseUI
         }
 
         private void btnResetAllFilters_Click(object sender, EventArgs e)
+        {
+            ResetAllFilters();
+        }
+        public void ResetAllFilters()
         {
             tbSearchString.Text = string.Empty;
             ResetDateFilter();

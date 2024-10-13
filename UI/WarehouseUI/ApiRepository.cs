@@ -62,5 +62,56 @@ namespace WarehouseUI
                 throw new HttpRequestException($"Error: {response.StatusCode}, {response.ReasonPhrase}");
             }
         }
+
+        public async Task<List<Category>> GetCategoriesAsync()
+        {
+            List<Category> results = new List<Category>();
+
+            HttpContent content = new StringContent("", System.Text.Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await _httpClient.GetAsync("api/warehouse/getcategories");
+
+            if (response.IsSuccessStatusCode)
+            {
+                string responseJson = await response.Content.ReadAsStringAsync();
+
+                List<CategoryData> resultsInDTOs = JsonConvert.DeserializeObject<List<CategoryData>>(responseJson);
+
+                foreach (var dto in resultsInDTOs)
+                {
+                    Category resultObject = TransferData.DtoToCategory(dto);
+                    results.Add(resultObject);
+                }
+
+                return results;
+            }
+            else
+            {
+                throw new HttpRequestException($"Error: {response.StatusCode}, {response.ReasonPhrase}");
+            }
+        }
+
+        public async Task<bool> CreateProductAsync(ProductData productData)
+        {
+            string jsonContent;
+            using (var stringWriter = new StringWriter())
+            {
+                var serializer = new JsonSerializer();
+                serializer.Serialize(stringWriter, productData);
+                jsonContent = stringWriter.ToString();
+            }
+            HttpContent content = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await _httpClient.PostAsync("api/warehouse/createproduct", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException($"Error: {response.StatusCode}, {response.ReasonPhrase}");
+            }
+        }
     }
 }

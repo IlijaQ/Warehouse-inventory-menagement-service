@@ -61,6 +61,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblSearch = new System.Windows.Forms.Label();
+            this.btnCreate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductsView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -384,7 +385,7 @@
             // 
             this.btnSearch.Location = new System.Drawing.Point(15, 12);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(192, 36);
+            this.btnSearch.Size = new System.Drawing.Size(169, 36);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search Products";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -393,9 +394,9 @@
             // btnResetAllFilters
             // 
             this.btnResetAllFilters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResetAllFilters.Location = new System.Drawing.Point(1289, 12);
+            this.btnResetAllFilters.Location = new System.Drawing.Point(1303, 12);
             this.btnResetAllFilters.Name = "btnResetAllFilters";
-            this.btnResetAllFilters.Size = new System.Drawing.Size(192, 36);
+            this.btnResetAllFilters.Size = new System.Drawing.Size(172, 36);
             this.btnResetAllFilters.TabIndex = 8;
             this.btnResetAllFilters.Text = "Reset All Filters";
             this.btnResetAllFilters.UseVisualStyleBackColor = true;
@@ -444,17 +445,28 @@
             this.lblSearch.Text = "Searching...";
             this.lblSearch.Visible = false;
             // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(188, 12);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(172, 36);
+            this.btnCreate.TabIndex = 14;
+            this.btnCreate.Text = "Create New";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1487, 649);
+            this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbTargetUrl);
             this.Controls.Add(this.btnResetAllFilters);
+            this.Controls.Add(this.tbTargetUrl);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);
@@ -516,6 +528,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.Button btnCreate;
     }
 }
 

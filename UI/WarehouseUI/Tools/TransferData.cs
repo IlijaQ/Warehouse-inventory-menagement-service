@@ -30,6 +30,7 @@ namespace WarehouseApi.Tools
             data.Description = product.Description;
             data.Quantity = product.StockQuantity;
             data.CreatedAt = product.CreatedAt;
+            data.CheckedCategoryIds = product.CheckedCategoryIds;
 
             return data;
         }
@@ -44,15 +45,15 @@ namespace WarehouseApi.Tools
             product.CreatedAt = data.CreatedAt;
         }
 
-        public static CategoryData CategoryToDto(Category category)
+        public static Category DtoToCategory(CategoryData data)
         {
-            CategoryData data = new CategoryData();
+            Category category = new Category();
 
-            data.Id = category.CategoryId;
-            data.Name = category.CategoryName;
-            data.CreatedAt = category.CreatedAt;
+            category.CategoryId = data.Id;
+            category.CategoryName = data.Name;
+            category.CreatedAt = data.CreatedAt;
 
-            return data;
+            return category;
         }
     }
 }

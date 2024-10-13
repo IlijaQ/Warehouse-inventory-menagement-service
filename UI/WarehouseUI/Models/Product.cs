@@ -14,5 +14,7 @@ namespace WarehouseUI.Models
         public string Description { get; set; }
         public int StockQuantity { get; set; }
         public decimal Price { get; set; }
+        public List<int> CheckedCategoryIds { get; set; }
+
     }
 }

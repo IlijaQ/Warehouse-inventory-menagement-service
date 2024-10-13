@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WarehouseUI
 {
-    public partial class ProductDetails : Form
+    public partial class ProductDetails : Form, IUsesCreateEditForm
     {
         public ProductDetails()
         {
