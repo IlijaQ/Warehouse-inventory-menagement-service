@@ -50,8 +50,10 @@ namespace WarehouseApi.Repository
         {
             if (!string.IsNullOrEmpty(searchFilter.Name))
             {
+                string nameFilter = searchFilter.Name.ToLower().Trim();
+
                 productsQuery = productsQuery
-                    .Where(p => p.ProductName.Contains(searchFilter.Name, StringComparison.OrdinalIgnoreCase));
+                    .Where(p => p.ProductName.ToLower().Contains(nameFilter));
             }
 
             if (searchFilter.DateTimeAfter != null)

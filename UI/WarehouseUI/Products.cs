@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WarehouseApi.DataTransferClasses;
 
 namespace WarehouseUI
 {
@@ -15,6 +16,61 @@ namespace WarehouseUI
         public Products()
         {
             InitializeComponent();
+            dgvProductsView.AutoGenerateColumns = true;
+        }
+
+        private async void btnSearch_Click(object sender, EventArgs e)
+        {
+            lblSearch.Visible = true;
+            dgvProductsView.DataSource = null;
+            
+            SearchFilters filters = new SearchFilters();
+            ApplyFilters(filters);
+            
+            var results = await UIController.GetProducts(filters);
+            dgvProductsView.DataSource = results;
+
+            FormatGridView();
+
+            lblCount.Text = $"Count: {results.Count}";
+            lblCount.Visible = true;
+            lblSearch.Visible = false;
+        }
+        private void ApplyFilters(SearchFilters filters)
+        {
+            if (!string.IsNullOrEmpty(tbSearchString.Text))
+                filters.Name = tbSearchString.Text.Trim();
+
+            if (dtpAfterFilter.Enabled && dtpAfterFilter.Value != null)
+                filters.DateTimeAfter = dtpAfterFilter.Value;
+            if (dtpBeforeFilter.Enabled && dtpAfterFilter.Value != null)
+                filters.DateTimeBefore = dtpBeforeFilter.Value;
+
+            if (numPriceFromFilter.Enabled && numPriceFromFilter.Value != null)
+                filters.PriceFrom = numPriceFromFilter.Value;
+            if (numPriceToFilter.Enabled && numPriceToFilter.Value != null)
+                filters.PriceTo = numPriceToFilter.Value;
+
+            if (numQuantityFromFilter.Enabled && numQuantityFromFilter.Value != null)
+                filters.StockMoreThan = (int?)numQuantityFromFilter.Value;
+            if (numQuantityToFilter.Enabled && numQuantityToFilter.Value != null)
+                filters.StockLessThan = (int?)numQuantityToFilter.Value;
+        }
+        private void FormatGridView()
+        {
+            dgvProductsView.Columns["ProductId"].Width = 70;
+            dgvProductsView.Columns["ProductName"].Width = 150;
+            dgvProductsView.Columns["Price"].Width = 70;
+            dgvProductsView.Columns["StockQuantity"].Width = 70;
+            dgvProductsView.Columns["Description"].Width = 400;
+            dgvProductsView.Columns["CreatedAt"].Width = 150;
+            
+            dgvProductsView.Columns["CreatedAt"].DefaultCellStyle.Format = "dd.MM.yyyy. HH:mm";
+
+            dgvProductsView.Columns["ProductName"].Name = "Product Name";
+            dgvProductsView.Columns["Price"].Name = "Price $";
+            dgvProductsView.Columns["StockQuantity"].Name = "Quantity";
+            dgvProductsView.Columns["CreatedAt"].Name = "Created At";
         }
 
         private void btnReserNameFilter_Click(object sender, EventArgs e)
@@ -101,6 +157,15 @@ namespace WarehouseUI
 
         private void tbTargetUrl_TextChanged(object sender, EventArgs e)
         {
+            string targetBaseUrl = tbTargetUrl.Text.Trim();
+            
+            int indexOfLastChar = targetBaseUrl.Length - 1;
+            if (targetBaseUrl.Length > 0 && targetBaseUrl[indexOfLastChar] != '/')
+                targetBaseUrl = targetBaseUrl + "/";
+            
+            if (targetBaseUrl.Contains("swagger/index.html"))
+                targetBaseUrl = targetBaseUrl.Remove(targetBaseUrl.IndexOf("swagger/index.html"));
+            
             Target.Url = tbTargetUrl.Text;
         }
     }

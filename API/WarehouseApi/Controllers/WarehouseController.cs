@@ -47,8 +47,7 @@ namespace WarehouseApi.Controllers
             return Ok(product);
         }
 
-        //[HttpGet("Get products")]
-        [HttpPost("Get products")]
+        [HttpPost("GetProducts")]
         public async Task<IActionResult> GetAllProducts([FromBody] SearchFilters searchFilters)
         {
             var products = await _repository.GetAllAsync(searchFilters);
