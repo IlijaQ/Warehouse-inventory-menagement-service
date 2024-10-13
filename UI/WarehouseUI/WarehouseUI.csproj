@@ -47,6 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiRepository.cs" />
+    <Compile Include="DataTransferClasses\CategoryData.cs" />
+    <Compile Include="DataTransferClasses\ProductAndCategoryData.cs" />
+    <Compile Include="DataTransferClasses\ProductData.cs" />
+    <Compile Include="DataTransferClasses\SearchFilters.cs" />
     <Compile Include="ProductCreateUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
