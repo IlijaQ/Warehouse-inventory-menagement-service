@@ -85,6 +85,7 @@
             this.dgvProductsView.RowTemplate.Height = 24;
             this.dgvProductsView.Size = new System.Drawing.Size(1469, 418);
             this.dgvProductsView.TabIndex = 0;
+            this.dgvProductsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductsView_CellContentClick);
             // 
             // lblCount
             // 

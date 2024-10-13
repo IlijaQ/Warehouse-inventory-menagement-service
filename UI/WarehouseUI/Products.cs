@@ -87,6 +87,12 @@ namespace WarehouseUI
             dgvProductsView.Columns["Price"].Name = "Price $";
             dgvProductsView.Columns["StockQuantity"].Name = "Quantity";
             dgvProductsView.Columns["CreatedAt"].Name = "Created At";
+
+            DataGridViewButtonColumn rowButton = new DataGridViewButtonColumn();
+            rowButton.Name = "More";
+            rowButton.Text = "Details";
+            rowButton.UseColumnTextForButtonValue = true;
+            dgvProductsView.Columns.Add(rowButton);
         }
 
         private void btnReserNameFilter_Click(object sender, EventArgs e)
@@ -187,6 +193,11 @@ namespace WarehouseUI
                 targetBaseUrl = targetBaseUrl.Remove(targetBaseUrl.IndexOf("swagger/index.html"));
             
             Target.Url = tbTargetUrl.Text;
+        }
+
+        private void dgvProductsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
