@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WarehouseApi.DataTransferClasses;
+using Krypton.Toolkit;
 
 namespace WarehouseUI
 {
-    public partial class Products : Form
+    public partial class Products : KryptonForm
     {
         public Products()
         {

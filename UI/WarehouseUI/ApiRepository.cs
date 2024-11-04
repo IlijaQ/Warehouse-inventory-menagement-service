@@ -94,7 +94,7 @@ namespace WarehouseUI
         public async Task<bool> CreateProductAsync(ProductData productData)
         {
             string jsonContent;
-            using (var stringWriter = new StringWriter())
+            using (var stringWriter = new StringWriter ())
             {
                 var serializer = new JsonSerializer();
                 serializer.Serialize(stringWriter, productData);
@@ -105,7 +105,7 @@ namespace WarehouseUI
             HttpResponseMessage response = await _httpClient.PostAsync("api/warehouse/createproduct", content);
 
             if (response.IsSuccessStatusCode)
-            {
+            { 
                 return true;
             }
             else
@@ -121,7 +121,7 @@ namespace WarehouseUI
             //var jsonContent = JsonConvert.SerializeObject(new { id = productIdInString });
             //HttpContent content = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await _httpClient.GetAsync($"api/warehouse/GetProductById/{productIdInString}");
+            HttpResponseMessage response = await _httpClient.GetAsync ($"api/warehouse/GetProductById/{productIdInString}");
 
             if (response.IsSuccessStatusCode)
             {
