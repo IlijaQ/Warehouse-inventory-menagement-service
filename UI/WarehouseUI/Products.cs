@@ -39,6 +39,8 @@ namespace WarehouseUI
         {
             lblSearch.Visible = true;
             dgvProductsView.DataSource = null;
+            dgvProductsView.Rows.Clear();
+            dgvProductsView.Columns.Clear();
 
             SearchFilters filters = new SearchFilters();
             ApplyFilters(filters);
@@ -205,6 +207,21 @@ namespace WarehouseUI
                 ProductDetails dialog = new ProductDetails(productIdInString);
                 dialog.Show();
             }
+        }
+
+        private void dgvProductsView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            var grid = sender as DataGridView;
+
+            var rowIndex = (e.RowIndex + 1).ToString();
+            var centerFormat = new StringFormat()
+            {
+                Alignment = StringAlignment.Near,
+                LineAlignment = StringAlignment.Center
+            };
+
+            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
+            e.Graphics.DrawString(rowIndex, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
     }
 }

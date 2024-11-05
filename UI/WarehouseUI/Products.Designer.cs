@@ -86,14 +86,16 @@
             this.dgvProductsView.Size = new System.Drawing.Size(1469, 418);
             this.dgvProductsView.TabIndex = 0;
             this.dgvProductsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductsView_CellContentClick);
+            this.dgvProductsView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvProductsView_RowPostPaint);
             // 
             // lblCount
             // 
             this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCount.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.lblCount.Location = new System.Drawing.Point(9, 613);
             this.lblCount.Name = "lblCount";
-            this.lblCount.Size = new System.Drawing.Size(53, 24);
+            this.lblCount.Size = new System.Drawing.Size(55, 24);
             this.lblCount.TabIndex = 1;
             this.lblCount.Values.Text = "Count";
             this.lblCount.Visible = false;
@@ -162,7 +164,7 @@
             // 
             this.btnToggleToFilter.Location = new System.Drawing.Point(18, 54);
             this.btnToggleToFilter.Name = "btnToggleToFilter";
-            this.btnToggleToFilter.Size = new System.Drawing.Size(73, 27);
+            this.btnToggleToFilter.Size = new System.Drawing.Size(73, 23);
             this.btnToggleToFilter.TabIndex = 24;
             this.btnToggleToFilter.Values.Text = "To";
             this.btnToggleToFilter.Click += new System.EventHandler(this.btnToggleToFilter_Click);
@@ -407,7 +409,7 @@
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Location = new System.Drawing.Point(641, 612);
+            this.label1.Location = new System.Drawing.Point(645, 615);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(220, 24);
             this.label1.TabIndex = 11;
