@@ -1,7 +1,7 @@
-# Warehouse
-Windows Forms-based UI that interacts with an MSSQL database through an ASP.NET Core API via HTTP client, utilizing Entity Framework to manage many-to-many relationships in the database.
+# Warehouse inventory management system
+A service of two separate applications (Desktop application UI and ASP.NET MVC Rest API) that work together via http to keep and keep track of a warehouse inventory.
 ![UI-API-DB](ScreenShots/Preview.png)
-The Desktop UI contains filtering by Name, Date Added, Price Range and Quantity. Every filter (except Name) can set its range from-, -to or both depending which group the user activate by clicking the button to the left. Search by Name is not case sensitive and it searches the Item Names containing search string.
+The Desktop application is designed in .NET Framework for user intraction. It does not comunicate with the database directly. It sends http requests to an ASP.NET Rest API (second application) that comunicates with many-to-many related database in Microsoft SQL Server, utilizing Microsoft Entity Framework. Rest API handles fetching, adding and removing data from the database when requested by the desktop application, while the desktop application handles the data view and has an UI that sends http requests for adding new data, editing, removing etc.
 ![UI](ScreenShots/Inventory.png)
 ![Create](ScreenShots/CreateProduct.png)
 ![Display](ScreenShots/PreviewProduct.png)
@@ -12,7 +12,7 @@ REST API comunicates with Microsoft SQL Server database which contains many-to-m
 
 #### REST API  
 .NET 7.0  
-Microsoft.EntityFrameworkCore.Tools verziju 7.0.20  
+Microsoft.EntityFrameworkCore.Tools v7.0.20  
 
 #### How to run
  - Clone the project from GitHub locally
