@@ -223,5 +223,57 @@ namespace WarehouseUI
             var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
             e.Graphics.DrawString(rowIndex, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
+
+        private void cbEnablePriceFromFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            numPriceFromFilter.Enabled = !numPriceFromFilter.Enabled;
+        }
+
+        private void cbEnablePriceToFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            numPriceToFilter.Enabled = !numPriceToFilter.Enabled;
+        }
+
+        private void cbEnableQuantityToFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            numQuantityToFilter.Enabled = !numQuantityToFilter.Enabled;
+        }
+
+        private void cbEnableQuantityFromFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            numQuantityFromFilter.Enabled = !numQuantityFromFilter.Enabled;
+        }
+
+        private void cbEnableDateToFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpBeforeFilter.Enabled = !dtpBeforeFilter.Enabled;
+        }
+
+        private void cbEnableDateFromFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpAfterFilter.Enabled = !dtpAfterFilter.Enabled;
+        }
+
+        private void cbEnableAllFilters_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbEnableAllFilters.Checked)
+            {
+                cbEnablePriceFromFilter.Checked = true;
+                cbEnablePriceToFilter.Checked = true;
+                cbEnableQuantityToFilter.Checked = true;
+                cbEnableQuantityFromFilter.Checked = true;
+                cbEnableDateToFilter.Checked = true;
+                cbEnableDateFromFilter.Checked = true;
+            }
+            else
+            {
+                cbEnablePriceFromFilter.Checked = false;
+                cbEnablePriceToFilter.Checked = false;
+                cbEnableQuantityToFilter.Checked = false;
+                cbEnableQuantityFromFilter.Checked = false;
+                cbEnableDateToFilter.Checked = false;
+                cbEnableDateFromFilter.Checked = false;
+            }
+        }
     }
 }
