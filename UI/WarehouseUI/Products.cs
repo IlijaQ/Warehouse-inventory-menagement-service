@@ -14,15 +14,20 @@ namespace WarehouseUI
 {
     public partial class Products : KryptonForm
     {
+        //private DateTime
+
         public Products()
         {
             InitializeComponent();
+            AddTargetUrl urlDialog = new AddTargetUrl();
+            urlDialog.ShowDialog();
             dgvProductsView.AutoGenerateColumns = true;
+            Target.CheckSettingOf(Target.Url);
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(tbTargetUrl.Text.Trim()))
+            if(string.IsNullOrEmpty(Target.Url.Trim()))
             {
                 MessageBox.Show("Configure base url first.\r\nTextbox at the bottom right.");
                 return;
@@ -33,6 +38,7 @@ namespace WarehouseUI
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
+            Target.CheckSettingOf(Target.Url);
             await SearchProducts();
         }
         public async Task SearchProducts()
@@ -184,17 +190,6 @@ namespace WarehouseUI
             this.Close();
         }
 
-        private void tbTargetUrl_TextChanged(object sender, EventArgs e)
-        {
-            string targetBaseUrl = tbTargetUrl.Text.Trim();
-            
-            int indexOfLastChar = targetBaseUrl.Length - 1;
-            if (targetBaseUrl.Length > 0 && targetBaseUrl[indexOfLastChar] != '/')
-                targetBaseUrl = targetBaseUrl + "/";
-            
-            Target.Url = tbTargetUrl.Text;
-        }
-
         private void dgvProductsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
@@ -274,6 +269,46 @@ namespace WarehouseUI
                 cbEnableDateToFilter.Checked = false;
                 cbEnableDateFromFilter.Checked = false;
             }
+        }
+
+        private void numPriceToFilter_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (numPriceToFilter.Value <= numPriceFromFilter.Value)
+                    numPriceFromFilter.Value = numPriceToFilter.Value - 1;
+            }
+            catch { /* ignore action if sets numPriceFromFilter.Value < 0 */ }
+        }
+
+        private void numPriceFromFilter_ValueChanged(object sender, EventArgs e)
+        {
+            if (numPriceFromFilter.Value >= numPriceToFilter.Value)
+                numPriceToFilter.Value = numPriceFromFilter.Value + 1;
+        }
+
+        private void numQuantityToFilter_ValueChanged(object sender, EventArgs e)
+        {
+                if (numQuantityToFilter.Value < numQuantityFromFilter.Value + 2)
+                    numQuantityFromFilter.Value = numQuantityToFilter.Value - 2;
+        }
+
+        private void numQuantityFromFilter_ValueChanged(object sender, EventArgs e)
+        {
+            if (numQuantityFromFilter.Value > numQuantityToFilter.Value - 2)
+                numQuantityToFilter.Value = numQuantityFromFilter.Value + 2;
+        }
+
+        private void dtpBeforeFilter_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpBeforeFilter.Value <= dtpAfterFilter.Value)
+                dtpAfterFilter.Value = dtpBeforeFilter.Value.AddDays(-1);
+        }
+
+        private void dtpAfterFilter_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpAfterFilter.Value >= dtpBeforeFilter.Value)
+                dtpBeforeFilter.Value = dtpAfterFilter.Value.AddDays(1);
         }
     }
 }
