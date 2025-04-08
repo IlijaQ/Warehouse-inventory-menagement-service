@@ -58,6 +58,10 @@ namespace WarehouseApi.Repository
 
             if (searchFilter.DateTimeAfter != null)
             {
+                DateOnly dateAfter = new DateOnly(searchFilter.DateTimeAfter.Value.Year,
+                    searchFilter.DateTimeAfter.Value.Month,
+                    searchFilter.DateTimeAfter.Value.Day);
+
                 productsQuery = productsQuery.Where(p => p.CreatedAt > searchFilter.DateTimeAfter);
             }
             if (searchFilter.DateTimeBefore != null)
