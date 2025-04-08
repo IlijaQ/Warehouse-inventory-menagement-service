@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WarehouseApi.Data;
+using WarehouseApi.Hubs;
 using WarehouseApi.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,11 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<WarehouseContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddSignalR();
+builder.Services.AddTransient<NotificationService>();
+builder.Services.AddDbContext<SignalRWarehouseContext>();
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
