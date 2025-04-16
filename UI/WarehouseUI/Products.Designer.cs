@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvProductsView = new System.Windows.Forms.DataGridView();
             this.lblCount = new Krypton.Toolkit.KryptonLabel();
             this.label3 = new Krypton.Toolkit.KryptonLabel();
             this.label2 = new Krypton.Toolkit.KryptonLabel();
@@ -58,24 +57,13 @@
             this.numQuantityToFilter = new Krypton.Toolkit.KryptonNumericUpDown();
             this.dtpBeforeFilter = new Krypton.Toolkit.KryptonDateTimePicker();
             this.dtpAfterFilter = new Krypton.Toolkit.KryptonDateTimePicker();
+            this.dgvProductsView = new Krypton.Toolkit.KryptonDataGridView();
+            this.SearchMaskPanel = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonProgressBar1 = new Krypton.Toolkit.KryptonProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductsView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchMaskPanel)).BeginInit();
+            this.SearchMaskPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dgvProductsView
-            // 
-            this.dgvProductsView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvProductsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductsView.Location = new System.Drawing.Point(12, 165);
-            this.dgvProductsView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvProductsView.Name = "dgvProductsView";
-            this.dgvProductsView.RowHeadersWidth = 51;
-            this.dgvProductsView.RowTemplate.Height = 24;
-            this.dgvProductsView.Size = new System.Drawing.Size(1513, 444);
-            this.dgvProductsView.TabIndex = 0;
-            this.dgvProductsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductsView_CellContentClick);
-            this.dgvProductsView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvProductsView_RowPostPaint);
             // 
             // lblCount
             // 
@@ -156,13 +144,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(708, 377);
+            this.lblSearch.Location = new System.Drawing.Point(162, 18);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(89, 24);
             this.lblSearch.TabIndex = 13;
             this.lblSearch.Values.Text = "Searching...";
-            this.lblSearch.Visible = false;
             // 
             // btnCreate
             // 
@@ -476,11 +463,53 @@
             this.dtpAfterFilter.TabIndex = 42;
             this.dtpAfterFilter.ValueChanged += new System.EventHandler(this.dtpAfterFilter_ValueChanged);
             // 
+            // dgvProductsView
+            // 
+            this.dgvProductsView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvProductsView.ColumnHeadersHeight = 36;
+            this.dgvProductsView.Location = new System.Drawing.Point(12, 166);
+            this.dgvProductsView.Name = "dgvProductsView";
+            this.dgvProductsView.RowHeadersWidth = 51;
+            this.dgvProductsView.RowTemplate.Height = 24;
+            this.dgvProductsView.Size = new System.Drawing.Size(1516, 442);
+            this.dgvProductsView.TabIndex = 43;
+            this.dgvProductsView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductsView_CellContentClick);
+            this.dgvProductsView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvProductsView_RowPostPaint);
+            // 
+            // SearchMaskPanel
+            // 
+            this.SearchMaskPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchMaskPanel.Controls.Add(this.kryptonProgressBar1);
+            this.SearchMaskPanel.Controls.Add(this.lblSearch);
+            this.SearchMaskPanel.Location = new System.Drawing.Point(580, 304);
+            this.SearchMaskPanel.Name = "SearchMaskPanel";
+            this.SearchMaskPanel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.SearchMaskPanel.Size = new System.Drawing.Size(414, 100);
+            this.SearchMaskPanel.TabIndex = 44;
+            this.SearchMaskPanel.Visible = false;
+            // 
+            // kryptonProgressBar1
+            // 
+            this.kryptonProgressBar1.Location = new System.Drawing.Point(16, 47);
+            this.kryptonProgressBar1.MarqueeAnimationSpeed = 200;
+            this.kryptonProgressBar1.Name = "kryptonProgressBar1";
+            this.kryptonProgressBar1.Size = new System.Drawing.Size(381, 31);
+            this.kryptonProgressBar1.StateCommon.Back.Color1 = System.Drawing.Color.Green;
+            this.kryptonProgressBar1.StateDisabled.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.OneNote;
+            this.kryptonProgressBar1.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.OneNote;
+            this.kryptonProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.kryptonProgressBar1.TabIndex = 14;
+            this.kryptonProgressBar1.Values.Text = "";
+            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1540, 657);
+            this.Controls.Add(this.SearchMaskPanel);
+            this.Controls.Add(this.dgvProductsView);
             this.Controls.Add(this.dtpAfterFilter);
             this.Controls.Add(this.dtpBeforeFilter);
             this.Controls.Add(this.numQuantityToFilter);
@@ -507,24 +536,23 @@
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCreate);
-            this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblCount);
-            this.Controls.Add(this.dgvProductsView);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(1505, 694);
             this.Name = "Products";
             this.ShowIcon = false;
             this.Text = "Warehouse Products";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductsView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchMaskPanel)).EndInit();
+            this.SearchMaskPanel.ResumeLayout(false);
+            this.SearchMaskPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvProductsView;
         private Krypton.Toolkit.KryptonLabel lblCount;
         private Krypton.Toolkit.KryptonLabel label2;
         private Krypton.Toolkit.KryptonButton btnReserNameFilter;
@@ -554,6 +582,9 @@
         private Krypton.Toolkit.KryptonNumericUpDown numQuantityToFilter;
         private Krypton.Toolkit.KryptonDateTimePicker dtpBeforeFilter;
         private Krypton.Toolkit.KryptonDateTimePicker dtpAfterFilter;
+        private Krypton.Toolkit.KryptonDataGridView dgvProductsView;
+        private Krypton.Toolkit.KryptonPanel SearchMaskPanel;
+        private Krypton.Toolkit.KryptonProgressBar kryptonProgressBar1;
     }
 }
 
