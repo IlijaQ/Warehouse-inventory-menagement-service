@@ -318,7 +318,7 @@
             this.numPriceFromFilter.Location = new System.Drawing.Point(419, 114);
             this.numPriceFromFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numPriceFromFilter.Maximum = new decimal(new int[] {
-            100,
+            999998,
             0,
             0,
             0});
@@ -351,7 +351,7 @@
             this.numPriceToFilter.Location = new System.Drawing.Point(419, 82);
             this.numPriceToFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numPriceToFilter.Maximum = new decimal(new int[] {
-            100,
+            1000000,
             0,
             0,
             0});

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Krypton.Toolkit;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ using WarehouseUI.Models;
 
 namespace WarehouseUI
 {
-    public partial class ProductCreate : Form
+    public partial class ProductCreate : KryptonForm
     {
         public Products PreviousForm { get; set; }
         public Dictionary<string, int> CategoryNameId { get; set; }
@@ -27,7 +28,7 @@ namespace WarehouseUI
 
         private async void FillCategoryCbList()
         {
-            lblSearch.Visible = true;
+            SearchMaskPanel.Visible = true;
 
             CategoryNameId = new Dictionary<string, int>();
             var results = await UIController.GetCategories();
@@ -38,7 +39,8 @@ namespace WarehouseUI
                 CategoryNameId.Add(category.CategoryName, category.CategoryId);
                 cbCategories.Items.Add(category.CategoryName);
             }
-            lblSearch.Visible = false;
+
+            SearchMaskPanel.Visible = false;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
