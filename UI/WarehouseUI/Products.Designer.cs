@@ -80,10 +80,11 @@
             // 
             // label3
             // 
+            this.label3.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.label3.Location = new System.Drawing.Point(12, 53);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(207, 24);
+            this.label3.Size = new System.Drawing.Size(221, 24);
             this.label3.TabIndex = 10;
             this.label3.Values.Text = "Procuct name (or name part)";
             // 
@@ -165,38 +166,42 @@
             // kryptonLabel1
             // 
             this.kryptonLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel1.Location = new System.Drawing.Point(933, 118);
+            this.kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel1.Location = new System.Drawing.Point(910, 118);
             this.kryptonLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(103, 24);
+            this.kryptonLabel1.Size = new System.Drawing.Size(109, 24);
             this.kryptonLabel1.TabIndex = 15;
             this.kryptonLabel1.Values.Text = "Created After";
             // 
             // kryptonLabel2
             // 
             this.kryptonLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel2.Location = new System.Drawing.Point(918, 89);
+            this.kryptonLabel2.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel2.Location = new System.Drawing.Point(899, 87);
             this.kryptonLabel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(113, 24);
+            this.kryptonLabel2.Size = new System.Drawing.Size(120, 24);
             this.kryptonLabel2.TabIndex = 16;
             this.kryptonLabel2.Values.Text = "Created Before";
             // 
             // kryptonLabel3
             // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(323, 85);
+            this.kryptonLabel3.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel3.Location = new System.Drawing.Point(301, 84);
             this.kryptonLabel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(90, 24);
+            this.kryptonLabel3.Size = new System.Drawing.Size(96, 24);
             this.kryptonLabel3.TabIndex = 25;
             this.kryptonLabel3.Values.Text = "Price Below";
             // 
             // kryptonLabel4
             // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(320, 114);
+            this.kryptonLabel4.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel4.Location = new System.Drawing.Point(298, 113);
             this.kryptonLabel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(92, 24);
+            this.kryptonLabel4.Size = new System.Drawing.Size(98, 24);
             this.kryptonLabel4.TabIndex = 26;
             this.kryptonLabel4.Values.Text = "Price Above";
             // 
@@ -267,20 +272,22 @@
             // kryptonLabel5
             // 
             this.kryptonLabel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel5.Location = new System.Drawing.Point(917, 50);
+            this.kryptonLabel5.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel5.Location = new System.Drawing.Point(896, 54);
             this.kryptonLabel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(118, 24);
+            this.kryptonLabel5.Size = new System.Drawing.Size(126, 24);
             this.kryptonLabel5.TabIndex = 34;
             this.kryptonLabel5.Values.Text = "Quantity Above";
             // 
             // kryptonLabel6
             // 
             this.kryptonLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel6.Location = new System.Drawing.Point(921, 21);
+            this.kryptonLabel6.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.kryptonLabel6.Location = new System.Drawing.Point(895, 20);
             this.kryptonLabel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(115, 24);
+            this.kryptonLabel6.Size = new System.Drawing.Size(124, 24);
             this.kryptonLabel6.TabIndex = 33;
             this.kryptonLabel6.Values.Text = "Quantity Below";
             // 
@@ -297,10 +304,10 @@
             // tbSearchString
             // 
             this.tbSearchString.CueHint.CueHintText = "leave empty to disable this filter";
-            this.tbSearchString.Location = new System.Drawing.Point(225, 50);
+            this.tbSearchString.Location = new System.Drawing.Point(251, 50);
             this.tbSearchString.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbSearchString.Name = "tbSearchString";
-            this.tbSearchString.Size = new System.Drawing.Size(339, 27);
+            this.tbSearchString.Size = new System.Drawing.Size(315, 27);
             this.tbSearchString.TabIndex = 36;
             this.tbSearchString.ToolTipValues.Description = "Case Insensitive";
             this.tbSearchString.ToolTipValues.Heading = "";

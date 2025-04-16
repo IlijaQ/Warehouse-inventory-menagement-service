@@ -33,7 +33,7 @@ namespace WarehouseUI
                 return;
             }
             ProductCreate dialog = new ProductCreate(this);
-            dialog.ShowDialog();
+            dialog.Show();
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)
@@ -111,6 +111,35 @@ namespace WarehouseUI
             rowButton.Text = "Details";
             rowButton.UseColumnTextForButtonValue = true;
             dgvProductsView.Columns.Add(rowButton);
+        }
+
+        private void dgvProductsView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            var grid = sender as KryptonDataGridView;
+
+            var rowIndex = (e.RowIndex + 1).ToString();
+            var centerFormat = new StringFormat()
+            {
+                Alignment = StringAlignment.Near,
+                LineAlignment = StringAlignment.Center
+            };
+
+            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
+            e.Graphics.DrawString(rowIndex, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+        }
+
+        private void dgvProductsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+                return;
+
+            if (dgvProductsView.Columns[e.ColumnIndex].Name == "More")
+            {
+                string productIdInString = dgvProductsView.Rows[e.RowIndex].Cells["ProductId"].Value.ToString().Trim();
+
+                ProductDetails dialog = new ProductDetails(productIdInString);
+                dialog.Show();
+            }
         }
 
         private void btnReserNameFilter_Click(object sender, EventArgs e)
@@ -192,44 +221,6 @@ namespace WarehouseUI
             ResetDateFilter();
             ResetPriceFilter();
             ResetQuantityFilter();
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void dgvProductsVie_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // to be removed
-
-            //if (e.RowIndex == -1)
-            //    return;
-
-            //if (dgvProductsView.Columns[e.ColumnIndex].Name == "More")
-            //{
-            //    string productIdInString = dgvProductsView.Rows[e.RowIndex].Cells["ProductId"].Value.ToString().Trim();
-
-            //    ProductDetails dialog = new ProductDetails(productIdInString);
-            //    dialog.Show();
-            //}
-        }
-
-        private void dgvProductsVie_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            // to be removed
-
-            //var grid = sender as DataGridView;
-
-            //var rowIndex = (e.RowIndex + 1).ToString();
-            //var centerFormat = new StringFormat()
-            //{
-            //    Alignment = StringAlignment.Near,
-            //    LineAlignment = StringAlignment.Center
-            //};
-
-            //var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
-            //e.Graphics.DrawString(rowIndex, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
 
         private void cbEnablePriceFromFilter_CheckedChanged(object sender, EventArgs e)
@@ -324,33 +315,9 @@ namespace WarehouseUI
                 dtpBeforeFilter.Value = dtpAfterFilter.Value.AddDays(1);
         }
 
-        private void dgvProductsView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            var grid = sender as KryptonDataGridView;
-
-            var rowIndex = (e.RowIndex + 1).ToString();
-            var centerFormat = new StringFormat()
-            {
-                Alignment = StringAlignment.Near,
-                LineAlignment = StringAlignment.Center
-            };
-
-            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
-            e.Graphics.DrawString(rowIndex, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
-        }
-
-        private void dgvProductsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex == -1)
-                return;
-
-            if (dgvProductsView.Columns[e.ColumnIndex].Name == "More")
-            {
-                string productIdInString = dgvProductsView.Rows[e.RowIndex].Cells["ProductId"].Value.ToString().Trim();
-
-                ProductDetails dialog = new ProductDetails(productIdInString);
-                dialog.Show();
-            }
+            this.Close();
         }
     }
 }

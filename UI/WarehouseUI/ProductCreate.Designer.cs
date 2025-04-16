@@ -106,7 +106,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label8.Location = new System.Drawing.Point(772, 54);
+            this.label8.Location = new System.Drawing.Point(771, 54);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(89, 24);
             this.label8.TabIndex = 13;
@@ -115,7 +115,7 @@
             // btnCreate
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCreate.Location = new System.Drawing.Point(12, 446);
+            this.btnCreate.Location = new System.Drawing.Point(12, 451);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(152, 33);
             this.btnCreate.TabIndex = 14;
@@ -125,7 +125,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1079, 446);
+            this.btnClose.Location = new System.Drawing.Point(1079, 451);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(111, 33);
             this.btnClose.TabIndex = 16;
@@ -136,18 +136,18 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(700, 84);
+            this.label7.Location = new System.Drawing.Point(721, 84);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(161, 24);
+            this.label7.Size = new System.Drawing.Size(139, 24);
             this.label7.TabIndex = 23;
-            this.label7.Values.Text = "select and/or deselect";
+            this.label7.Values.Text = "select one or more";
             // 
             // lblSearch
             // 
             this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(65, 17);
+            this.lblSearch.Location = new System.Drawing.Point(64, 17);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(157, 24);
             this.lblSearch.TabIndex = 24;
@@ -156,15 +156,13 @@
             // 
             // SearchMaskPanel
             // 
-            this.SearchMaskPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchMaskPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchMaskPanel.Controls.Add(this.kryptonProgressBar1);
             this.SearchMaskPanel.Controls.Add(this.lblSearch);
             this.SearchMaskPanel.Location = new System.Drawing.Point(903, 194);
             this.SearchMaskPanel.Name = "SearchMaskPanel";
             this.SearchMaskPanel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
-            this.SearchMaskPanel.Size = new System.Drawing.Size(273, 89);
+            this.SearchMaskPanel.Size = new System.Drawing.Size(272, 87);
             this.SearchMaskPanel.TabIndex = 45;
             this.SearchMaskPanel.Visible = false;
             // 
@@ -183,6 +181,8 @@
             // 
             // cbCategories
             // 
+            this.cbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCategories.Location = new System.Drawing.Point(887, 51);
             this.cbCategories.Name = "cbCategories";
             this.cbCategories.Size = new System.Drawing.Size(303, 384);
@@ -274,7 +274,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1202, 574);
+            this.ClientSize = new System.Drawing.Size(1201, 496);
             this.Controls.Add(this.dtProductCreatedAt);
             this.Controls.Add(this.numProductQuantity);
             this.Controls.Add(this.numProductPrice);
@@ -291,9 +291,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.MinimumSize = new System.Drawing.Size(1004, 621);
+            this.MinimumSize = new System.Drawing.Size(1219, 543);
             this.Name = "ProductCreate";
-            this.Text = "Product Create";
+            this.ShowIcon = false;
+            this.Text = "Create Product";
             ((System.ComponentModel.ISupportInitialize)(this.SearchMaskPanel)).EndInit();
             this.SearchMaskPanel.ResumeLayout(false);
             this.SearchMaskPanel.PerformLayout();
