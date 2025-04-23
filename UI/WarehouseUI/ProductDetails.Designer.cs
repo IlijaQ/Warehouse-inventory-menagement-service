@@ -45,14 +45,18 @@
             this.btnEdit = new Krypton.Toolkit.KryptonButton();
             this.btnDelete = new Krypton.Toolkit.KryptonButton();
             this.btnClose = new Krypton.Toolkit.KryptonButton();
+            this.SearchMaskPanel = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonProgressBar1 = new Krypton.Toolkit.KryptonProgressBar();
             this.lblSearch = new Krypton.Toolkit.KryptonLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchMaskPanel)).BeginInit();
+            this.SearchMaskPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label1.Location = new System.Drawing.Point(64, 36);
+            this.label1.Location = new System.Drawing.Point(64, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 24);
             this.label1.TabIndex = 0;
@@ -62,7 +66,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label2.Location = new System.Drawing.Point(35, 75);
+            this.label2.Location = new System.Drawing.Point(37, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 24);
             this.label2.TabIndex = 1;
@@ -72,17 +76,17 @@
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label3.Location = new System.Drawing.Point(94, 115);
+            this.label3.Location = new System.Drawing.Point(103, 102);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 24);
+            this.label3.Size = new System.Drawing.Size(47, 24);
             this.label3.TabIndex = 2;
-            this.label3.Values.Text = "Price $";
+            this.label3.Values.Text = "Price";
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label4.Location = new System.Drawing.Point(31, 155);
+            this.label4.Location = new System.Drawing.Point(34, 132);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 24);
             this.label4.TabIndex = 3;
@@ -92,7 +96,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label5.Location = new System.Drawing.Point(66, 199);
+            this.label5.Location = new System.Drawing.Point(64, 162);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 24);
             this.label5.TabIndex = 4;
@@ -102,7 +106,7 @@
             // 
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.lblDescription.Location = new System.Drawing.Point(57, 244);
+            this.lblDescription.Location = new System.Drawing.Point(55, 281);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(95, 24);
             this.lblDescription.TabIndex = 5;
@@ -113,11 +117,12 @@
             // 
             this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbDescription.Location = new System.Drawing.Point(210, 244);
+            this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDescription.Location = new System.Drawing.Point(188, 281);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.ReadOnly = true;
-            this.tbDescription.Size = new System.Drawing.Size(290, 232);
+            this.tbDescription.Size = new System.Drawing.Size(275, 183);
             this.tbDescription.TabIndex = 6;
             this.tbDescription.Visible = false;
             // 
@@ -125,7 +130,7 @@
             // 
             this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.lblId.Location = new System.Drawing.Point(206, 36);
+            this.lblId.Location = new System.Drawing.Point(188, 40);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(25, 24);
             this.lblId.TabIndex = 7;
@@ -134,7 +139,7 @@
             // lblProductName
             // 
             this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductName.Location = new System.Drawing.Point(206, 75);
+            this.lblProductName.Location = new System.Drawing.Point(188, 70);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(52, 24);
             this.lblProductName.TabIndex = 8;
@@ -143,16 +148,16 @@
             // lblPrice
             // 
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(206, 115);
+            this.lblPrice.Location = new System.Drawing.Point(188, 102);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(44, 24);
+            this.lblPrice.Size = new System.Drawing.Size(57, 24);
             this.lblPrice.TabIndex = 9;
-            this.lblPrice.Values.Text = "Price";
+            this.lblPrice.Values.Text = "$ Price";
             // 
             // lblQuantity
             // 
             this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(206, 155);
+            this.lblQuantity.Location = new System.Drawing.Point(188, 132);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(70, 24);
             this.lblQuantity.TabIndex = 10;
@@ -161,7 +166,7 @@
             // lblProductCreatedAt
             // 
             this.lblProductCreatedAt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductCreatedAt.Location = new System.Drawing.Point(206, 199);
+            this.lblProductCreatedAt.Location = new System.Drawing.Point(188, 162);
             this.lblProductCreatedAt.Name = "lblProductCreatedAt";
             this.lblProductCreatedAt.Size = new System.Drawing.Size(82, 24);
             this.lblProductCreatedAt.TabIndex = 11;
@@ -171,19 +176,20 @@
             // 
             this.tbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbCategories.Location = new System.Drawing.Point(595, 75);
+            this.tbCategories.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCategories.Location = new System.Drawing.Point(-174, 192);
             this.tbCategories.Multiline = true;
             this.tbCategories.Name = "tbCategories";
             this.tbCategories.ReadOnly = true;
-            this.tbCategories.Size = new System.Drawing.Size(334, 401);
+            this.tbCategories.Size = new System.Drawing.Size(275, 83);
             this.tbCategories.TabIndex = 12;
+            this.tbCategories.SizeChanged += new System.EventHandler(this.tbCategories_SizeChanged);
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label8.Location = new System.Drawing.Point(595, 45);
+            this.label8.Location = new System.Drawing.Point(62, 192);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(89, 24);
             this.label8.TabIndex = 13;
@@ -192,9 +198,9 @@
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.Location = new System.Drawing.Point(595, 482);
+            this.btnEdit.Location = new System.Drawing.Point(339, 482);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(152, 33);
+            this.btnEdit.Size = new System.Drawing.Size(111, 33);
             this.btnEdit.TabIndex = 14;
             this.btnEdit.Values.Text = "Edit";
             // 
@@ -203,32 +209,55 @@
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDelete.Location = new System.Drawing.Point(12, 482);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(152, 33);
+            this.btnDelete.Size = new System.Drawing.Size(111, 33);
             this.btnDelete.TabIndex = 15;
             this.btnDelete.Values.Text = "Delete";
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(818, 482);
+            this.btnClose.Location = new System.Drawing.Point(456, 482);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(111, 33);
             this.btnClose.TabIndex = 16;
             this.btnClose.Values.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // SearchMaskPanel
+            // 
+            this.SearchMaskPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SearchMaskPanel.Controls.Add(this.kryptonProgressBar1);
+            this.SearchMaskPanel.Controls.Add(this.lblSearch);
+            this.SearchMaskPanel.Location = new System.Drawing.Point(145, 207);
+            this.SearchMaskPanel.Name = "SearchMaskPanel";
+            this.SearchMaskPanel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
+            this.SearchMaskPanel.Size = new System.Drawing.Size(272, 87);
+            this.SearchMaskPanel.TabIndex = 46;
+            this.SearchMaskPanel.Visible = false;
+            // 
+            // kryptonProgressBar1
+            // 
+            this.kryptonProgressBar1.Location = new System.Drawing.Point(14, 47);
+            this.kryptonProgressBar1.MarqueeAnimationSpeed = 200;
+            this.kryptonProgressBar1.Name = "kryptonProgressBar1";
+            this.kryptonProgressBar1.Size = new System.Drawing.Size(244, 31);
+            this.kryptonProgressBar1.StateCommon.Back.Color1 = System.Drawing.Color.Green;
+            this.kryptonProgressBar1.StateDisabled.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.OneNote;
+            this.kryptonProgressBar1.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.OneNote;
+            this.kryptonProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.kryptonProgressBar1.TabIndex = 14;
+            this.kryptonProgressBar1.Values.Text = "";
+            // 
             // lblSearch
             // 
-            this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.lblSearch.Location = new System.Drawing.Point(506, 244);
+            this.lblSearch.Location = new System.Drawing.Point(55, 17);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(96, 24);
-            this.lblSearch.TabIndex = 26;
-            this.lblSearch.Values.Text = "Searching...";
+            this.lblSearch.Size = new System.Drawing.Size(173, 24);
+            this.lblSearch.TabIndex = 24;
+            this.lblSearch.Values.Text = "Fetching Product Data...";
             this.lblSearch.Visible = false;
             // 
             // ProductDetails
@@ -236,11 +265,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(941, 527);
-            this.Controls.Add(this.lblSearch);
+            this.ClientSize = new System.Drawing.Size(579, 527);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.SearchMaskPanel);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbCategories);
             this.Controls.Add(this.lblProductCreatedAt);
@@ -255,9 +284,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(959, 574);
+            this.MinimumSize = new System.Drawing.Size(597, 574);
             this.Name = "ProductDetails";
+            this.ShowIcon = false;
             this.Text = "Product Details";
+            ((System.ComponentModel.ISupportInitialize)(this.SearchMaskPanel)).EndInit();
+            this.SearchMaskPanel.ResumeLayout(false);
+            this.SearchMaskPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,6 +315,8 @@
         private Krypton.Toolkit.KryptonButton btnEdit;
         private Krypton.Toolkit.KryptonButton btnDelete;
         private Krypton.Toolkit.KryptonButton btnClose;
+        private Krypton.Toolkit.KryptonPanel SearchMaskPanel;
+        private Krypton.Toolkit.KryptonProgressBar kryptonProgressBar1;
         private Krypton.Toolkit.KryptonLabel lblSearch;
     }
 }
