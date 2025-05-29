@@ -67,7 +67,6 @@
             // 
             // lblCount
             // 
-            this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCount.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.lblCount.Location = new System.Drawing.Point(12, 137);
@@ -130,7 +129,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSearch.Location = new System.Drawing.Point(225, 613);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
@@ -154,7 +153,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCreate.Location = new System.Drawing.Point(12, 613);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreate.Name = "btnCreate";
@@ -304,7 +303,7 @@
             // tbSearchString
             // 
             this.tbSearchString.CueHint.CueHintText = "leave empty to disable this filter";
-            this.tbSearchString.Location = new System.Drawing.Point(251, 50);
+            this.tbSearchString.Location = new System.Drawing.Point(251, 49);
             this.tbSearchString.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbSearchString.Name = "tbSearchString";
             this.tbSearchString.Size = new System.Drawing.Size(315, 27);
@@ -472,6 +471,9 @@
             // 
             // dgvProductsView
             // 
+            this.dgvProductsView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProductsView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProductsView.ColumnHeadersHeight = 36;
             this.dgvProductsView.Location = new System.Drawing.Point(12, 166);
@@ -549,7 +551,7 @@
             this.MinimumSize = new System.Drawing.Size(1505, 694);
             this.Name = "Products";
             this.ShowIcon = false;
-            this.Text = "Warehouse Products";
+            this.Text = "Warehouse Inventory";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SearchMaskPanel)).EndInit();
             this.SearchMaskPanel.ResumeLayout(false);
