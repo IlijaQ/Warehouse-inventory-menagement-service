@@ -34,19 +34,45 @@ namespace WarehouseUI
         {
             string productIdInString = result.Id.ToString();
 
-            this.Name = $"{productIdInString} Details";
+            this.Text = $"{productIdInString} Details";
             lblId.Text = productIdInString;
             lblProductName.Text = result.Name;
             lblPrice.Text = "$" + result.Price.ToString();
             lblQuantity.Text = result.Quantity.ToString();
             lblProductCreatedAt.Text = result.CreatedAt.ToString("dd.MM.yyyy. HH:mm");
-            tbCategories.Text = string.Join(", ", result.CategoryList);
 
+            
+            
+            int yOffset = lblCategoriesTag.Location.Y;
+
+            ArrangeCategoryLabels(ref yOffset, result);
+
+
+            tbDescription.Location = new Point(lblId.Location.X, yOffset);
+            lblDescriptionTag.Location = new Point(lblDescriptionTag.Location.X, yOffset);
+            
             tbDescription.Text = result.Description;
             if (!string.IsNullOrEmpty(result.Description.Trim()))
             {
-                tbDescription.Text = "[no description]";
-                lblDescription.ForeColor = Color.Gray;
+                tbDescription.Text = "no description";
+                lblDescriptionTag.ForeColor = Color.Gray;
+            }
+        }
+        private void ArrangeCategoryLabels(ref int yOffset, Models.ProductAndCategories result)
+        {
+            List<string> categoryStringList = result.CategoryList.Select(c => c.Name).ToList();
+            foreach (string categoryName in categoryStringList)
+            {
+                KryptonLabel lblCategory = new KryptonLabel
+                {
+                    Text = categoryName,
+                    Location = new Point(lblId.Location.X, yOffset),
+                    AutoSize = true
+                };
+
+                this.Controls.Add(lblCategory);
+
+                yOffset += lblCategory.Height + 5;
             }
         }
 
@@ -57,14 +83,14 @@ namespace WarehouseUI
 
         private void tbCategories_SizeChanged(object sender, EventArgs e)
         {
-            Size textSize = TextRenderer.MeasureText(
-                tbCategories.Text,
-                tbCategories.Font,
-                tbCategories.ClientSize,
-                TextFormatFlags.WordBreak
-                );
+            //Size textSize = TextRenderer.MeasureText(
+            //    tbCategories.Text,
+            //    tbCategories.Font,
+            //    tbCategories.ClientSize,
+            //    TextFormatFlags.WordBreak
+            //    );
 
-            tbCategories.Height = textSize.Height;
+            //tbCategories.Height = textSize.Height;
         }
     }
 }

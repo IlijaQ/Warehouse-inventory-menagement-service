@@ -33,21 +33,20 @@
             this.label3 = new Krypton.Toolkit.KryptonLabel();
             this.label4 = new Krypton.Toolkit.KryptonLabel();
             this.label5 = new Krypton.Toolkit.KryptonLabel();
-            this.lblDescription = new Krypton.Toolkit.KryptonLabel();
-            this.tbDescription = new System.Windows.Forms.TextBox();
+            this.lblDescriptionTag = new Krypton.Toolkit.KryptonLabel();
             this.lblId = new Krypton.Toolkit.KryptonLabel();
             this.lblProductName = new Krypton.Toolkit.KryptonLabel();
             this.lblPrice = new Krypton.Toolkit.KryptonLabel();
             this.lblQuantity = new Krypton.Toolkit.KryptonLabel();
             this.lblProductCreatedAt = new Krypton.Toolkit.KryptonLabel();
-            this.tbCategories = new System.Windows.Forms.TextBox();
-            this.label8 = new Krypton.Toolkit.KryptonLabel();
+            this.lblCategoriesTag = new Krypton.Toolkit.KryptonLabel();
             this.btnEdit = new Krypton.Toolkit.KryptonButton();
             this.btnDelete = new Krypton.Toolkit.KryptonButton();
             this.btnClose = new Krypton.Toolkit.KryptonButton();
             this.SearchMaskPanel = new Krypton.Toolkit.KryptonPanel();
             this.kryptonProgressBar1 = new Krypton.Toolkit.KryptonProgressBar();
             this.lblSearch = new Krypton.Toolkit.KryptonLabel();
+            this.tbDescription = new Krypton.Toolkit.KryptonTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.SearchMaskPanel)).BeginInit();
             this.SearchMaskPanel.SuspendLayout();
             this.SuspendLayout();
@@ -102,29 +101,16 @@
             this.label5.TabIndex = 4;
             this.label5.Values.Text = "Created at";
             // 
-            // lblDescription
+            // lblDescriptionTag
             // 
-            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.lblDescription.Location = new System.Drawing.Point(55, 281);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(95, 24);
-            this.lblDescription.TabIndex = 5;
-            this.lblDescription.Values.Text = "Description";
-            this.lblDescription.Visible = false;
-            // 
-            // tbDescription
-            // 
-            this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDescription.Location = new System.Drawing.Point(188, 281);
-            this.tbDescription.Multiline = true;
-            this.tbDescription.Name = "tbDescription";
-            this.tbDescription.ReadOnly = true;
-            this.tbDescription.Size = new System.Drawing.Size(275, 183);
-            this.tbDescription.TabIndex = 6;
-            this.tbDescription.Visible = false;
+            this.lblDescriptionTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionTag.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.lblDescriptionTag.Location = new System.Drawing.Point(55, 262);
+            this.lblDescriptionTag.Name = "lblDescriptionTag";
+            this.lblDescriptionTag.Size = new System.Drawing.Size(95, 24);
+            this.lblDescriptionTag.TabIndex = 5;
+            this.lblDescriptionTag.Values.Text = "Description";
+            this.lblDescriptionTag.Visible = false;
             // 
             // lblId
             // 
@@ -172,28 +158,15 @@
             this.lblProductCreatedAt.TabIndex = 11;
             this.lblProductCreatedAt.Values.Text = "Created at";
             // 
-            // tbCategories
+            // lblCategoriesTag
             // 
-            this.tbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbCategories.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbCategories.Location = new System.Drawing.Point(-174, 192);
-            this.tbCategories.Multiline = true;
-            this.tbCategories.Name = "tbCategories";
-            this.tbCategories.ReadOnly = true;
-            this.tbCategories.Size = new System.Drawing.Size(275, 83);
-            this.tbCategories.TabIndex = 12;
-            this.tbCategories.SizeChanged += new System.EventHandler(this.tbCategories_SizeChanged);
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label8.Location = new System.Drawing.Point(62, 192);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 24);
-            this.label8.TabIndex = 13;
-            this.label8.Values.Text = "Categories";
+            this.lblCategoriesTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoriesTag.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            this.lblCategoriesTag.Location = new System.Drawing.Point(61, 195);
+            this.lblCategoriesTag.Name = "lblCategoriesTag";
+            this.lblCategoriesTag.Size = new System.Drawing.Size(89, 24);
+            this.lblCategoriesTag.TabIndex = 13;
+            this.lblCategoriesTag.Values.Text = "Categories";
             // 
             // btnEdit
             // 
@@ -228,7 +201,7 @@
             this.SearchMaskPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchMaskPanel.Controls.Add(this.kryptonProgressBar1);
             this.SearchMaskPanel.Controls.Add(this.lblSearch);
-            this.SearchMaskPanel.Location = new System.Drawing.Point(145, 207);
+            this.SearchMaskPanel.Location = new System.Drawing.Point(12, 389);
             this.SearchMaskPanel.Name = "SearchMaskPanel";
             this.SearchMaskPanel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.SearchMaskPanel.Size = new System.Drawing.Size(272, 87);
@@ -258,7 +231,14 @@
             this.lblSearch.Size = new System.Drawing.Size(173, 24);
             this.lblSearch.TabIndex = 24;
             this.lblSearch.Values.Text = "Fetching Product Data...";
-            this.lblSearch.Visible = false;
+            // 
+            // tbDescription
+            // 
+            this.tbDescription.Location = new System.Drawing.Point(188, 262);
+            this.tbDescription.Multiline = true;
+            this.tbDescription.Name = "tbDescription";
+            this.tbDescription.Size = new System.Drawing.Size(376, 90);
+            this.tbDescription.TabIndex = 48;
             // 
             // ProductDetails
             // 
@@ -266,19 +246,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(579, 527);
+            this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.SearchMaskPanel);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.tbCategories);
+            this.Controls.Add(this.lblCategoriesTag);
             this.Controls.Add(this.lblProductCreatedAt);
             this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.lblId);
-            this.Controls.Add(this.tbDescription);
-            this.Controls.Add(this.lblDescription);
+            this.Controls.Add(this.lblDescriptionTag);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -303,20 +282,19 @@
         private Krypton.Toolkit.KryptonLabel label3;
         private Krypton.Toolkit.KryptonLabel label4;
         private Krypton.Toolkit.KryptonLabel label5;
-        private Krypton.Toolkit.KryptonLabel lblDescription;
-        private System.Windows.Forms.TextBox tbDescription;
+        private Krypton.Toolkit.KryptonLabel lblDescriptionTag;
         private Krypton.Toolkit.KryptonLabel lblId;
         private Krypton.Toolkit.KryptonLabel lblProductName;
         private Krypton.Toolkit.KryptonLabel lblPrice;
         private Krypton.Toolkit.KryptonLabel lblQuantity;
         private Krypton.Toolkit.KryptonLabel lblProductCreatedAt;
-        private System.Windows.Forms.TextBox tbCategories;
-        private Krypton.Toolkit.KryptonLabel label8;
+        private Krypton.Toolkit.KryptonLabel lblCategoriesTag;
         private Krypton.Toolkit.KryptonButton btnEdit;
         private Krypton.Toolkit.KryptonButton btnDelete;
         private Krypton.Toolkit.KryptonButton btnClose;
         private Krypton.Toolkit.KryptonPanel SearchMaskPanel;
         private Krypton.Toolkit.KryptonProgressBar kryptonProgressBar1;
         private Krypton.Toolkit.KryptonLabel lblSearch;
+        private Krypton.Toolkit.KryptonTextBox tbDescription;
     }
 }

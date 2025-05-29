@@ -54,7 +54,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label2.Location = new System.Drawing.Point(40, 54);
+            this.label2.Location = new System.Drawing.Point(43, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 24);
             this.label2.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label3.Location = new System.Drawing.Point(96, 88);
+            this.label3.Location = new System.Drawing.Point(99, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 24);
             this.label3.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label4.Location = new System.Drawing.Point(37, 118);
+            this.label4.Location = new System.Drawing.Point(40, 121);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 24);
             this.label4.TabIndex = 3;
@@ -84,7 +84,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label5.Location = new System.Drawing.Point(70, 149);
+            this.label5.Location = new System.Drawing.Point(73, 152);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 24);
             this.label5.TabIndex = 4;
@@ -94,7 +94,7 @@
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label6.Location = new System.Drawing.Point(61, 179);
+            this.label6.Location = new System.Drawing.Point(64, 182);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 24);
             this.label6.TabIndex = 5;
@@ -106,7 +106,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            this.label8.Location = new System.Drawing.Point(771, 54);
+            this.label8.Location = new System.Drawing.Point(768, 57);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(89, 24);
             this.label8.TabIndex = 13;
@@ -115,7 +115,7 @@
             // btnCreate
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCreate.Location = new System.Drawing.Point(12, 451);
+            this.btnCreate.Location = new System.Drawing.Point(15, 448);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(152, 33);
             this.btnCreate.TabIndex = 14;
@@ -125,7 +125,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(1079, 451);
+            this.btnClose.Location = new System.Drawing.Point(1076, 448);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(111, 33);
             this.btnClose.TabIndex = 16;
@@ -136,7 +136,7 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(721, 84);
+            this.label7.Location = new System.Drawing.Point(718, 87);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(139, 24);
             this.label7.TabIndex = 23;
@@ -152,7 +152,6 @@
             this.lblSearch.Size = new System.Drawing.Size(157, 24);
             this.lblSearch.TabIndex = 24;
             this.lblSearch.Values.Text = "Fetching Categories...";
-            this.lblSearch.Visible = false;
             // 
             // SearchMaskPanel
             // 
@@ -183,9 +182,9 @@
             // 
             this.cbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbCategories.Location = new System.Drawing.Point(887, 51);
+            this.cbCategories.Location = new System.Drawing.Point(884, 54);
             this.cbCategories.Name = "cbCategories";
-            this.cbCategories.Size = new System.Drawing.Size(303, 384);
+            this.cbCategories.Size = new System.Drawing.Size(303, 378);
             this.cbCategories.TabIndex = 46;
             // 
             // tbDescription
@@ -293,6 +292,7 @@
             this.Controls.Add(this.label2);
             this.MinimumSize = new System.Drawing.Size(1219, 543);
             this.Name = "ProductCreate";
+            this.Padding = new System.Windows.Forms.Padding(3);
             this.ShowIcon = false;
             this.Text = "Create Product";
             ((System.ComponentModel.ISupportInitialize)(this.SearchMaskPanel)).EndInit();
