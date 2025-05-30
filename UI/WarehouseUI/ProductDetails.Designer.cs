@@ -171,7 +171,7 @@
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.Location = new System.Drawing.Point(339, 482);
+            this.btnEdit.Location = new System.Drawing.Point(404, 482);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(111, 33);
             this.btnEdit.TabIndex = 14;
@@ -189,7 +189,7 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(456, 482);
+            this.btnClose.Location = new System.Drawing.Point(521, 482);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(111, 33);
             this.btnClose.TabIndex = 16;
@@ -201,7 +201,7 @@
             this.SearchMaskPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchMaskPanel.Controls.Add(this.kryptonProgressBar1);
             this.SearchMaskPanel.Controls.Add(this.lblSearch);
-            this.SearchMaskPanel.Location = new System.Drawing.Point(12, 389);
+            this.SearchMaskPanel.Location = new System.Drawing.Point(188, 199);
             this.SearchMaskPanel.Name = "SearchMaskPanel";
             this.SearchMaskPanel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.SearchMaskPanel.Size = new System.Drawing.Size(272, 87);
@@ -237,7 +237,7 @@
             this.tbDescription.Location = new System.Drawing.Point(188, 262);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(376, 90);
+            this.tbDescription.Size = new System.Drawing.Size(444, 90);
             this.tbDescription.TabIndex = 48;
             // 
             // ProductDetails
@@ -245,12 +245,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(579, 527);
+            this.ClientSize = new System.Drawing.Size(644, 527);
+            this.Controls.Add(this.SearchMaskPanel);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.SearchMaskPanel);
             this.Controls.Add(this.lblCategoriesTag);
             this.Controls.Add(this.lblProductCreatedAt);
             this.Controls.Add(this.lblQuantity);
@@ -263,7 +263,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(597, 574);
+            this.MinimumSize = new System.Drawing.Size(662, 574);
             this.Name = "ProductDetails";
             this.ShowIcon = false;
             this.Text = "Product Details";

@@ -40,16 +40,12 @@ namespace WarehouseUI
             lblPrice.Text = "$" + result.Price.ToString();
             lblQuantity.Text = result.Quantity.ToString();
             lblProductCreatedAt.Text = result.CreatedAt.ToString("dd.MM.yyyy. HH:mm");
-
             
-            
-            int yOffset = lblCategoriesTag.Location.Y;
+            int currentMaxYOffset = lblCategoriesTag.Location.Y;
+            ArrangeInStacksOfFiveLabels(ref currentMaxYOffset, result);
 
-            ArrangeCategoryLabels(ref yOffset, result);
-
-
-            tbDescription.Location = new Point(lblId.Location.X, yOffset);
-            lblDescriptionTag.Location = new Point(lblDescriptionTag.Location.X, yOffset);
+            tbDescription.Location = new Point(lblId.Location.X, currentMaxYOffset);
+            lblDescriptionTag.Location = new Point(lblDescriptionTag.Location.X, currentMaxYOffset);
             
             tbDescription.Text = result.Description;
             if (!string.IsNullOrEmpty(result.Description.Trim()))
@@ -58,21 +54,34 @@ namespace WarehouseUI
                 lblDescriptionTag.ForeColor = Color.Gray;
             }
         }
-        private void ArrangeCategoryLabels(ref int yOffset, Models.ProductAndCategories result)
+        private void ArrangeInStacksOfFiveLabels(ref int currentMaxYOffset, Models.ProductAndCategories result)
         {
+            int count = 1;
+            int xOffset = lblId.Location.X;
+            int yOffset = currentMaxYOffset;
+
             List<string> categoryStringList = result.CategoryList.Select(c => c.Name).ToList();
             foreach (string categoryName in categoryStringList)
             {
                 KryptonLabel lblCategory = new KryptonLabel
                 {
                     Text = categoryName,
-                    Location = new Point(lblId.Location.X, yOffset),
+                    Location = new Point(xOffset, yOffset),
                     AutoSize = true
                 };
 
                 this.Controls.Add(lblCategory);
 
                 yOffset += lblCategory.Height + 5;
+
+                if (yOffset > currentMaxYOffset)
+                    currentMaxYOffset = yOffset;
+
+                if (count++ % 5 == 0)
+                {
+                    xOffset += 110;
+                    yOffset = lblCategoriesTag.Location.Y;
+                }
             }
         }
 
