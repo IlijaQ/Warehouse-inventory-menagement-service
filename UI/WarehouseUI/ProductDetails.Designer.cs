@@ -46,7 +46,8 @@
             this.SearchMaskPanel = new Krypton.Toolkit.KryptonPanel();
             this.kryptonProgressBar1 = new Krypton.Toolkit.KryptonProgressBar();
             this.lblSearch = new Krypton.Toolkit.KryptonLabel();
-            this.tbDescription = new Krypton.Toolkit.KryptonTextBox();
+            this.lblNoDescTag = new Krypton.Toolkit.KryptonLabel();
+            this.lblWrapDescription = new Krypton.Toolkit.KryptonWrapLabel();
             ((System.ComponentModel.ISupportInitialize)(this.SearchMaskPanel)).BeginInit();
             this.SearchMaskPanel.SuspendLayout();
             this.SuspendLayout();
@@ -107,10 +108,10 @@
             this.lblDescriptionTag.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
             this.lblDescriptionTag.Location = new System.Drawing.Point(55, 262);
             this.lblDescriptionTag.Name = "lblDescriptionTag";
+            this.lblDescriptionTag.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblDescriptionTag.Size = new System.Drawing.Size(95, 24);
             this.lblDescriptionTag.TabIndex = 5;
             this.lblDescriptionTag.Values.Text = "Description";
-            this.lblDescriptionTag.Visible = false;
             // 
             // lblId
             // 
@@ -201,7 +202,7 @@
             this.SearchMaskPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchMaskPanel.Controls.Add(this.kryptonProgressBar1);
             this.SearchMaskPanel.Controls.Add(this.lblSearch);
-            this.SearchMaskPanel.Location = new System.Drawing.Point(188, 199);
+            this.SearchMaskPanel.Location = new System.Drawing.Point(190, 182);
             this.SearchMaskPanel.Name = "SearchMaskPanel";
             this.SearchMaskPanel.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.HeaderPrimary;
             this.SearchMaskPanel.Size = new System.Drawing.Size(272, 87);
@@ -232,13 +233,27 @@
             this.lblSearch.TabIndex = 24;
             this.lblSearch.Values.Text = "Fetching Product Data...";
             // 
-            // tbDescription
+            // lblNoDescTag
             // 
-            this.tbDescription.Location = new System.Drawing.Point(188, 262);
-            this.tbDescription.Multiline = true;
-            this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(444, 90);
-            this.tbDescription.TabIndex = 48;
+            this.lblNoDescTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoDescTag.Location = new System.Drawing.Point(37, 262);
+            this.lblNoDescTag.Name = "lblNoDescTag";
+            this.lblNoDescTag.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblNoDescTag.Size = new System.Drawing.Size(109, 24);
+            this.lblNoDescTag.TabIndex = 49;
+            this.lblNoDescTag.Values.Text = "no description";
+            this.lblNoDescTag.Visible = false;
+            // 
+            // lblWrapDescription
+            // 
+            this.lblWrapDescription.AutoSize = false;
+            this.lblWrapDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblWrapDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            this.lblWrapDescription.LabelStyle = Krypton.Toolkit.LabelStyle.AlternateControl;
+            this.lblWrapDescription.Location = new System.Drawing.Point(190, 265);
+            this.lblWrapDescription.Name = "lblWrapDescription";
+            this.lblWrapDescription.Size = new System.Drawing.Size(442, 96);
+            this.lblWrapDescription.Text = "Description text";
             // 
             // ProductDetails
             // 
@@ -247,7 +262,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(644, 527);
             this.Controls.Add(this.SearchMaskPanel);
-            this.Controls.Add(this.tbDescription);
+            this.Controls.Add(this.lblWrapDescription);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
@@ -263,6 +278,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNoDescTag);
             this.MinimumSize = new System.Drawing.Size(662, 574);
             this.Name = "ProductDetails";
             this.ShowIcon = false;
@@ -295,6 +311,7 @@
         private Krypton.Toolkit.KryptonPanel SearchMaskPanel;
         private Krypton.Toolkit.KryptonProgressBar kryptonProgressBar1;
         private Krypton.Toolkit.KryptonLabel lblSearch;
-        private Krypton.Toolkit.KryptonTextBox tbDescription;
+        private Krypton.Toolkit.KryptonLabel lblNoDescTag;
+        private Krypton.Toolkit.KryptonWrapLabel lblWrapDescription;
     }
 }

@@ -42,19 +42,21 @@ namespace WarehouseUI
             lblProductCreatedAt.Text = result.CreatedAt.ToString("dd.MM.yyyy. HH:mm");
             
             int currentMaxYOffset = lblCategoriesTag.Location.Y;
-            ArrangeInStacksOfFiveLabels(ref currentMaxYOffset, result);
+            ArrangeInStacksOfFourLabels(ref currentMaxYOffset, result);
 
-            tbDescription.Location = new Point(lblId.Location.X, currentMaxYOffset);
-            lblDescriptionTag.Location = new Point(lblDescriptionTag.Location.X, currentMaxYOffset);
+            lblWrapDescription.Location = new Point(lblId.Location.X, currentMaxYOffset);
+            lblWrapDescription.Text = result.Description;
             
-            tbDescription.Text = result.Description;
-            if (!string.IsNullOrEmpty(result.Description.Trim()))
+            if (string.IsNullOrEmpty(result.Description.Trim()))
             {
-                tbDescription.Text = "no description";
-                lblDescriptionTag.ForeColor = Color.Gray;
+                lblDescriptionTag.Visible = false;
+                lblNoDescTag.Visible = true;
+                lblNoDescTag.Location = new Point(lblNoDescTag.Location.X, currentMaxYOffset);
             }
+            else
+                lblDescriptionTag.Location = new Point(lblDescriptionTag.Location.X, currentMaxYOffset);
         }
-        private void ArrangeInStacksOfFiveLabels(ref int currentMaxYOffset, Models.ProductAndCategories result)
+        private void ArrangeInStacksOfFourLabels(ref int currentMaxYOffset, Models.ProductAndCategories result)
         {
             int count = 1;
             int xOffset = lblId.Location.X;
@@ -77,7 +79,7 @@ namespace WarehouseUI
                 if (yOffset > currentMaxYOffset)
                     currentMaxYOffset = yOffset;
 
-                if (count++ % 5 == 0)
+                if (count++ % 4 == 0)
                 {
                     xOffset += 110;
                     yOffset = lblCategoriesTag.Location.Y;
