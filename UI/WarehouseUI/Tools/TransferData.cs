@@ -45,6 +45,16 @@ namespace WarehouseApi.Tools
             product.CreatedAt = data.CreatedAt;
         }
 
+        public static CategoryData CategoryToDto(Category category)
+        {
+            CategoryData data = new CategoryData();
+
+            data.Name = category.CategoryName;
+            data.CreatedAt = category.CreatedAt;
+
+            return data;
+        }
+
         public static Category DtoToCategory(CategoryData data)
         {
             Category category = new Category();

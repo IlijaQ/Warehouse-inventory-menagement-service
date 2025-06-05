@@ -114,6 +114,29 @@ namespace WarehouseUI
             }
         }
 
+        public async Task<bool> CreateCategoryAsync(CategoryData categoryData)
+        {
+            string jsonContent;
+            using (var stringWriter = new StringWriter())
+            {
+                var serializer = new JsonSerializer();
+                serializer.Serialize(stringWriter, categoryData);
+                jsonContent = stringWriter.ToString();
+            }
+            HttpContent content = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await _httpClient.PostAsync("api/warehouse/createcategory", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException($"Error: {response.StatusCode}, {response.ReasonPhrase}");
+            }
+        }
+
         public async Task<ProductAndCategories> GetProductByIdAsync(string productIdInString)
         {
             ProductAndCategories result = new ProductAndCategories();

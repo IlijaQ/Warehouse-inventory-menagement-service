@@ -37,5 +37,13 @@ namespace WarehouseUI
             ApiRepository repository = new ApiRepository();
             return await repository.GetProductByIdAsync(productIdInString);
         }
+
+        public static async Task<bool> CreateCategory(Category category)
+        {
+            ApiRepository repository = new ApiRepository();
+            CategoryData categoryDto = TransferData.CategoryToDto(category);
+            bool success = await repository.CreateCategoryAsync(categoryDto);
+            return success;
+        }
     }
 }

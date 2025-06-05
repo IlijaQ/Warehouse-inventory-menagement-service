@@ -23,10 +23,10 @@ namespace WarehouseUI
         {
             InitializeComponent();
             PreviousForm = previousForm;
-            FillCategoryCbList();
+            RefreshCategoryCbList();
         }
 
-        private async void FillCategoryCbList()
+        private async void RefreshCategoryCbList()
         {
             SearchMaskPanel.Visible = true;
 
@@ -79,6 +79,46 @@ namespace WarehouseUI
                 PreviousForm.ResetAllFilters();
                 PreviousForm.SearchProducts();
                 this.Close();
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
+
+        private void btnPromptAddCategoryPanel_Click(object sender, EventArgs e)
+        {
+            SwitchAddCategoryUi();
+        }
+        private void SwitchAddCategoryUi()
+        {
+            btnPromptAddCategoryPanel.Enabled = !btnPromptAddCategoryPanel.Enabled;
+            NewCategoryDialog.Visible = !NewCategoryDialog.Visible;
+        }
+
+        private async void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            string newCategoryInput = tbDescription.Text.Trim();
+
+            if (string.IsNullOrEmpty(newCategoryInput))
+            {
+                MessageBox.Show("Please enter Category name.");
+                return;
+            }
+
+            Category categoryToAdd = new Category
+            {
+                CategoryName = newCategoryInput,
+                CreatedAt = DateTime.Now
+            };
+
+            bool success = await UIController.CreateCategory(categoryToAdd);
+
+            if (success)
+            {
+                MessageBox.Show($"Category {tbProductName.Text} Successfully added.");
+                SwitchAddCategoryUi();
+                RefreshCategoryCbList();
             }
             else
             {
