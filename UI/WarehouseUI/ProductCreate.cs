@@ -93,12 +93,12 @@ namespace WarehouseUI
         private void SwitchAddCategoryUi()
         {
             btnPromptAddCategoryPanel.Enabled = !btnPromptAddCategoryPanel.Enabled;
-            NewCategoryDialog.Visible = !NewCategoryDialog.Visible;
+            NewCategoryDialogPanel.Visible = !NewCategoryDialogPanel.Visible;
         }
 
         private async void btnAddCategory_Click(object sender, EventArgs e)
         {
-            string newCategoryInput = tbDescription.Text.Trim();
+            string newCategoryInput = tbNewCategoryName.Text.Trim();
 
             if (string.IsNullOrEmpty(newCategoryInput))
             {
@@ -124,6 +124,12 @@ namespace WarehouseUI
             {
                 throw new Exception();
             }
+        }
+
+        private void CloseNewCategoryDialogPanel_Click(object sender, EventArgs e)
+        {
+            tbNewCategoryName.Clear();
+            SwitchAddCategoryUi();
         }
     }
 }

@@ -48,12 +48,13 @@
             this.dtProductCreatedAt = new Krypton.Toolkit.KryptonDateTimePicker();
             this.btnPromptAddCategoryPanel = new Krypton.Toolkit.KryptonButton();
             this.tbNewCategoryName = new Krypton.Toolkit.KryptonTextBox();
-            this.NewCategoryDialog = new Krypton.Toolkit.KryptonPanel();
+            this.NewCategoryDialogPanel = new Krypton.Toolkit.KryptonPanel();
             this.btnAddCategory = new Krypton.Toolkit.KryptonButton();
+            this.CloseNewCategoryDialogPanel = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.SearchMaskPanel)).BeginInit();
             this.SearchMaskPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NewCategoryDialog)).BeginInit();
-            this.NewCategoryDialog.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NewCategoryDialogPanel)).BeginInit();
+            this.NewCategoryDialogPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -153,7 +154,7 @@
             this.lblSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(105, 17);
+            this.lblSearch.Location = new System.Drawing.Point(89, 17);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(157, 24);
             this.lblSearch.TabIndex = 24;
@@ -176,7 +177,7 @@
             this.kryptonProgressBar1.Location = new System.Drawing.Point(14, 47);
             this.kryptonProgressBar1.MarqueeAnimationSpeed = 200;
             this.kryptonProgressBar1.Name = "kryptonProgressBar1";
-            this.kryptonProgressBar1.Size = new System.Drawing.Size(244, 31);
+            this.kryptonProgressBar1.Size = new System.Drawing.Size(289, 31);
             this.kryptonProgressBar1.StateCommon.Back.Color1 = System.Drawing.Color.Green;
             this.kryptonProgressBar1.StateDisabled.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.OneNote;
             this.kryptonProgressBar1.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.OneNote;
@@ -188,6 +189,7 @@
             // 
             this.cbCategories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbCategories.CheckOnClick = true;
             this.cbCategories.Location = new System.Drawing.Point(850, 57);
             this.cbCategories.Name = "cbCategories";
             this.cbCategories.Size = new System.Drawing.Size(337, 378);
@@ -230,7 +232,7 @@
             0,
             0});
             this.numProductPrice.Name = "numProductPrice";
-            this.numProductPrice.Size = new System.Drawing.Size(107, 26);
+            this.numProductPrice.Size = new System.Drawing.Size(109, 26);
             this.numProductPrice.TabIndex = 49;
             this.numProductPrice.Value = new decimal(new int[] {
             0,
@@ -279,38 +281,47 @@
             this.btnPromptAddCategoryPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPromptAddCategoryPanel.Location = new System.Drawing.Point(850, 448);
             this.btnPromptAddCategoryPanel.Name = "btnPromptAddCategoryPanel";
-            this.btnPromptAddCategoryPanel.Size = new System.Drawing.Size(150, 33);
+            this.btnPromptAddCategoryPanel.Size = new System.Drawing.Size(172, 33);
             this.btnPromptAddCategoryPanel.TabIndex = 52;
             this.btnPromptAddCategoryPanel.Values.Text = "Add New Category";
             this.btnPromptAddCategoryPanel.Click += new System.EventHandler(this.btnPromptAddCategoryPanel_Click);
             // 
             // tbNewCategoryName
             // 
-            this.tbNewCategoryName.CueHint.CueHintText = "enter new category name";
-            this.tbNewCategoryName.Location = new System.Drawing.Point(9, 9);
+            this.tbNewCategoryName.Location = new System.Drawing.Point(44, 9);
             this.tbNewCategoryName.Name = "tbNewCategoryName";
-            this.tbNewCategoryName.Size = new System.Drawing.Size(217, 27);
+            this.tbNewCategoryName.Size = new System.Drawing.Size(192, 27);
             this.tbNewCategoryName.TabIndex = 53;
             // 
-            // NewCategoryDialog
+            // NewCategoryDialogPanel
             // 
-            this.NewCategoryDialog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.NewCategoryDialog.Controls.Add(this.btnAddCategory);
-            this.NewCategoryDialog.Controls.Add(this.tbNewCategoryName);
-            this.NewCategoryDialog.Location = new System.Drawing.Point(862, 378);
-            this.NewCategoryDialog.Name = "NewCategoryDialog";
-            this.NewCategoryDialog.Size = new System.Drawing.Size(313, 45);
-            this.NewCategoryDialog.TabIndex = 54;
-            this.NewCategoryDialog.Visible = false;
+            this.NewCategoryDialogPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.NewCategoryDialogPanel.Controls.Add(this.CloseNewCategoryDialogPanel);
+            this.NewCategoryDialogPanel.Controls.Add(this.btnAddCategory);
+            this.NewCategoryDialogPanel.Controls.Add(this.tbNewCategoryName);
+            this.NewCategoryDialogPanel.Location = new System.Drawing.Point(862, 378);
+            this.NewCategoryDialogPanel.Name = "NewCategoryDialogPanel";
+            this.NewCategoryDialogPanel.Size = new System.Drawing.Size(313, 45);
+            this.NewCategoryDialogPanel.TabIndex = 54;
+            this.NewCategoryDialogPanel.Visible = false;
             // 
             // btnAddCategory
             // 
-            this.btnAddCategory.Location = new System.Drawing.Point(232, 9);
+            this.btnAddCategory.Location = new System.Drawing.Point(242, 9);
             this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(71, 27);
+            this.btnAddCategory.Size = new System.Drawing.Size(61, 27);
             this.btnAddCategory.TabIndex = 55;
             this.btnAddCategory.Values.Text = "Add";
             this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
+            // 
+            // CloseNewCategoryDialogPanel
+            // 
+            this.CloseNewCategoryDialogPanel.Location = new System.Drawing.Point(9, 9);
+            this.CloseNewCategoryDialogPanel.Name = "CloseNewCategoryDialogPanel";
+            this.CloseNewCategoryDialogPanel.Size = new System.Drawing.Size(29, 27);
+            this.CloseNewCategoryDialogPanel.TabIndex = 56;
+            this.CloseNewCategoryDialogPanel.Values.Text = "x";
+            this.CloseNewCategoryDialogPanel.Click += new System.EventHandler(this.CloseNewCategoryDialogPanel_Click);
             // 
             // ProductCreate
             // 
@@ -318,7 +329,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1201, 496);
-            this.Controls.Add(this.NewCategoryDialog);
+            this.Controls.Add(this.NewCategoryDialogPanel);
             this.Controls.Add(this.btnPromptAddCategoryPanel);
             this.Controls.Add(this.dtProductCreatedAt);
             this.Controls.Add(this.numProductQuantity);
@@ -344,9 +355,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.SearchMaskPanel)).EndInit();
             this.SearchMaskPanel.ResumeLayout(false);
             this.SearchMaskPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NewCategoryDialog)).EndInit();
-            this.NewCategoryDialog.ResumeLayout(false);
-            this.NewCategoryDialog.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NewCategoryDialogPanel)).EndInit();
+            this.NewCategoryDialogPanel.ResumeLayout(false);
+            this.NewCategoryDialogPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,7 +384,8 @@
         private Krypton.Toolkit.KryptonDateTimePicker dtProductCreatedAt;
         private Krypton.Toolkit.KryptonButton btnPromptAddCategoryPanel;
         private Krypton.Toolkit.KryptonTextBox tbNewCategoryName;
-        private Krypton.Toolkit.KryptonPanel NewCategoryDialog;
+        private Krypton.Toolkit.KryptonPanel NewCategoryDialogPanel;
         private Krypton.Toolkit.KryptonButton btnAddCategory;
+        private Krypton.Toolkit.KryptonButton CloseNewCategoryDialogPanel;
     }
 }
