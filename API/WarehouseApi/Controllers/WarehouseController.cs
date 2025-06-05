@@ -100,5 +100,24 @@ namespace WarehouseApi.Controllers
             var categories = await _repository.GetAllCategories();
             return Ok(categories);
         }
+
+        [HttpPost("CreateCategory")]
+        public async Task<IActionResult> CreateCategory([FromBody] CategoryData categoryData)
+        {
+            if (categoryData == null)
+            {
+                return BadRequest("Invalid category data.");
+            }
+
+            try
+            {
+                await _repository.AddNewCategoryAsync(categoryData);
+                return StatusCode(201);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred while creating the category: {ex.Message}");
+            }
+        }
     }
 }

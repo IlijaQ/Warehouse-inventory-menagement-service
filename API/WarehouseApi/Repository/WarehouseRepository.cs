@@ -193,5 +193,13 @@ namespace WarehouseApi.Repository
 
             return categoriesInDTOs;
         }
+
+        public async Task AddNewCategoryAsync(CategoryData categoryData)
+        {
+            Category newCategory = TransferData.FromDtoToCategory(categoryData);
+
+            _context.Category.Add(newCategory);
+            await _context.SaveChangesAsync();
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace WarehouseApi.Repository
         Task<bool> UpdateAsync(ProductData productData);
         Task<bool> DeleteAsync(int id);
         Task<IEnumerable<CategoryData>> GetAllCategories();
+        Task AddNewCategoryAsync(CategoryData productData);
     }
 }

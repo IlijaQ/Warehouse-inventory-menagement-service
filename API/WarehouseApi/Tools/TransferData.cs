@@ -1,5 +1,6 @@
 ﻿using WarehouseModels.Models;
 using WarehouseApi.DataTransferClasses;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WarehouseApi.Tools
 {
@@ -50,6 +51,17 @@ namespace WarehouseApi.Tools
             product.Description = data.Description;
             product.StockQuantity = data.Quantity;
             product.CreatedAt = data.CreatedAt;
+        }
+
+        public static Category FromDtoToCategory(CategoryData data)
+        {
+            Category category = new Category();
+
+            category.CategoryId = data.Id;
+            category.CategoryName = data.Name;
+            category.CreatedAt = data.CreatedAt;
+
+            return category;
         }
 
         public static CategoryData CategoryToDto(Category category)
