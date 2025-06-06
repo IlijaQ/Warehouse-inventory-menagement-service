@@ -29,6 +29,26 @@ namespace WarehouseUI
             _httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
+        public async Task<ProductAndCategories> GetProductByIdAsync(string productIdInString)
+        {
+            ProductAndCategories result = new ProductAndCategories();
+
+            HttpResponseMessage response = await _httpClient.GetAsync($"api/warehouse/GetProductById/{productIdInString}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                string responseJson = await response.Content.ReadAsStringAsync();
+
+                result = JsonConvert.DeserializeObject<ProductAndCategories>(responseJson);
+
+                return result;
+            }
+            else
+            {
+                throw new HttpRequestException($"Error: {response.StatusCode}, {response.ReasonPhrase}");
+            }
+        }
+
         public async Task<List<Product>> GetProductsAsync(SearchFilters searchFilters)
         {
             List<Product> results = new List<Product>();
@@ -137,22 +157,22 @@ namespace WarehouseUI
             }
         }
 
-        public async Task<ProductAndCategories> GetProductByIdAsync(string productIdInString)
+        public async Task<bool> UpdateProductAsync(ProductData productData)
         {
-            ProductAndCategories result = new ProductAndCategories();
+            string jsonContent;
+            using (var stringWriter = new StringWriter())
+            {
+                var serializer = new JsonSerializer();
+                serializer.Serialize(stringWriter, productData);
+                jsonContent = stringWriter.ToString();
+            }
+            HttpContent content = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
 
-            //var jsonContent = JsonConvert.SerializeObject(new { id = productIdInString });
-            //HttpContent content = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
-
-            HttpResponseMessage response = await _httpClient.GetAsync ($"api/warehouse/GetProductById/{productIdInString}");
+            HttpResponseMessage response = await _httpClient.PostAsync("api/warehouse/updateproduct", content);
 
             if (response.IsSuccessStatusCode)
             {
-                string responseJson = await response.Content.ReadAsStringAsync();
-
-                result = JsonConvert.DeserializeObject<ProductAndCategories>(responseJson);
-
-                return result;
+                return true;
             }
             else
             {

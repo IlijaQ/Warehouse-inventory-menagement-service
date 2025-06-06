@@ -12,6 +12,12 @@ namespace WarehouseUI
 {
     public static class UIController
     {
+        public static async Task<ProductAndCategories> GetProductById(string productIdInString)
+        {
+            ApiRepository repository = new ApiRepository();
+            return await repository.GetProductByIdAsync(productIdInString);
+        }
+
         public static async Task<List<Product>> GetProducts(SearchFilters filters)
         {
             ApiRepository repository = new ApiRepository();
@@ -32,17 +38,19 @@ namespace WarehouseUI
             return success;
         }
 
-        public static async Task<ProductAndCategories> GetProductById(string productIdInString)
-        {
-            ApiRepository repository = new ApiRepository();
-            return await repository.GetProductByIdAsync(productIdInString);
-        }
-
         public static async Task<bool> CreateCategory(Category category)
         {
             ApiRepository repository = new ApiRepository();
             CategoryData categoryDto = TransferData.CategoryToDto(category);
             bool success = await repository.CreateCategoryAsync(categoryDto);
+            return success;
+        }
+
+        public static async Task<bool> UpdateProduct(Product product)
+        {
+            ApiRepository repository = new ApiRepository();
+            ProductData productDto = TransferData.ProductToDto(product);
+            bool success = await repository.CreateProductAsync(productDto);
             return success;
         }
     }
