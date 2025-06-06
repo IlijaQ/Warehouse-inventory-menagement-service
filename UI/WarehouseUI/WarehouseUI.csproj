@@ -68,6 +68,12 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductAndCategories.cs" />
+    <Compile Include="ProductUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUpdate.Designer.cs">
+      <DependentUpon>ProductUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tools\TransferData.cs" />
     <Compile Include="ProductDetails.cs">
       <SubType>Form</SubType>
@@ -93,6 +99,9 @@
     <Compile Include="UIController.cs" />
     <EmbeddedResource Include="AddTargetUrl.resx">
       <DependentUpon>AddTargetUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUpdate.resx">
+      <DependentUpon>ProductUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductDetails.resx">
       <DependentUpon>ProductDetails.cs</DependentUpon>
