@@ -8,16 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WarehouseUI.Models;
 
 namespace WarehouseUI
 {
     public partial class ProductDetails : KryptonForm, IUsesCreateEditForm
     {
+        private ProductAndCategories SelectedProduct { get; set; }
+
         public ProductDetails(string productIdInString)
         {
             InitializeComponent();
             GetProductInfo(productIdInString);
-            
         }
 
         private async void GetProductInfo(string productId)
@@ -25,29 +27,30 @@ namespace WarehouseUI
             SearchMaskPanel.Visible = true;
 
             var result = await UIController.GetProductById(productId);
+            SelectedProduct = result;
 
-            FillFormWithData(result);
+            FillFormWithData(SelectedProduct);
 
             SearchMaskPanel.Visible = false;
         }
-        private void FillFormWithData(Models.ProductAndCategories result)
+        private void FillFormWithData(ProductAndCategories selectedProduct)
         {
-            string productIdInString = result.Id.ToString();
+            string productIdInString = selectedProduct.Id.ToString();
 
             this.Text = $"{productIdInString} Details";
             lblId.Text = productIdInString;
-            lblProductName.Text = result.Name;
-            lblPrice.Text = "$" + result.Price.ToString();
-            lblQuantity.Text = result.Quantity.ToString();
-            lblProductCreatedAt.Text = result.CreatedAt.ToString("dd.MM.yyyy. HH:mm");
+            lblProductName.Text = selectedProduct.Name;
+            lblPrice.Text = "$" + selectedProduct.Price.ToString();
+            lblQuantity.Text = selectedProduct.Quantity.ToString();
+            lblProductCreatedAt.Text = selectedProduct.CreatedAt.ToString("dd.MM.yyyy. HH:mm");
             
             int currentMaxYOffset = lblCategoriesTag.Location.Y;
-            ArrangeInStacksOfFourLabels(ref currentMaxYOffset, result);
+            ArrangeInStacksOfFourLabels(ref currentMaxYOffset, selectedProduct);
 
             lblWrapDescription.Location = new Point(lblId.Location.X, currentMaxYOffset);
-            lblWrapDescription.Text = result.Description;
+            lblWrapDescription.Text = selectedProduct.Description;
             
-            if (string.IsNullOrEmpty(result.Description.Trim()))
+            if (string.IsNullOrEmpty(selectedProduct.Description.Trim()))
             {
                 lblDescriptionTag.Visible = false;
                 lblNoDescTag.Visible = true;

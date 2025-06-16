@@ -54,7 +54,7 @@ namespace WarehouseApi.Controllers
             return Ok(products);
         }
 
-        [HttpPut("Update Product")]
+        [HttpPut("UpdateProduct")]
         public async Task<IActionResult> UpdateProduct([FromBody] ProductData productData)
         {
             if (productData == null)
