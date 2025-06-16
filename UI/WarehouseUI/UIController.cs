@@ -53,5 +53,12 @@ namespace WarehouseUI
             bool success = await repository.CreateProductAsync(productDto);
             return success;
         }
+
+        public static async Task<bool> DeleteProduct(string productIdInString)
+        {
+            ApiRepository repository = new ApiRepository();
+            bool success = await repository.DeleteProductAsync(productIdInString);
+            return success;
+        }
     }
 }

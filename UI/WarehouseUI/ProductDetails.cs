@@ -15,9 +15,11 @@ namespace WarehouseUI
     public partial class ProductDetails : KryptonForm, IUsesCreateEditForm
     {
         private ProductAndCategories SelectedProduct { get; set; }
+        private Products MainForm { get; set; }
 
-        public ProductDetails(string productIdInString)
+        public ProductDetails(string productIdInString, Products mainForm)
         {
+            MainForm = mainForm;
             InitializeComponent();
             GetProductInfo(productIdInString);
         }
@@ -90,21 +92,44 @@ namespace WarehouseUI
             }
         }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            ProductUpdate dialog = new ProductUpdate(SelectedProduct, this, MainForm);
+
+        }
+
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                $"Are you sure you want to delete {SelectedProduct.Name} from inventory?\r\nProduct Id: {SelectedProduct.Id}",
+                $"Delete {SelectedProduct.Id}",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+                );
+
+            if(result == DialogResult.Yes)
+            {
+                bool success = await UIController.DeleteProduct(SelectedProduct.Id.ToString());
+
+                if (success)
+                {
+                    MessageBox.Show(
+                        $"Successfully removed {SelectedProduct.Name} from inventory.\r\nProduct Id: {SelectedProduct.Id}",
+                        $"Delete {SelectedProduct.Id}",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                        );
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void tbCategories_SizeChanged(object sender, EventArgs e)
-        {
-            //Size textSize = TextRenderer.MeasureText(
-            //    tbCategories.Text,
-            //    tbCategories.Font,
-            //    tbCategories.ClientSize,
-            //    TextFormatFlags.WordBreak
-            //    );
-
-            //tbCategories.Height = textSize.Height;
         }
     }
 }

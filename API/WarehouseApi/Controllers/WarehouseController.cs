@@ -77,7 +77,7 @@ namespace WarehouseApi.Controllers
         }
 
         //[HttpDelete("{id}")]
-        [HttpDelete]
+        [HttpDelete("DeleteProduct")]
         public async Task<IActionResult> DeleteProduct([FromBody] int id)
         {
             try

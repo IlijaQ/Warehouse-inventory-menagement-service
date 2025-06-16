@@ -177,6 +177,7 @@
             this.btnEdit.Size = new System.Drawing.Size(111, 33);
             this.btnEdit.TabIndex = 14;
             this.btnEdit.Values.Text = "Edit";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -186,6 +187,7 @@
             this.btnDelete.Size = new System.Drawing.Size(111, 33);
             this.btnDelete.TabIndex = 15;
             this.btnDelete.Values.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClose
             // 

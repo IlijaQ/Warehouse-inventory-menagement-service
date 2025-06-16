@@ -179,5 +179,19 @@ namespace WarehouseUI
                 throw new HttpRequestException($"Error: {response.StatusCode}, {response.ReasonPhrase}");
             }
         }
+
+        public async Task<bool> DeleteProductAsync(string productIdInString)
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync($"api/warehouse/DeleteProduct/{productIdInString}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException($"Error: {response.StatusCode}, {response.ReasonPhrase}");
+            }
+        }
     }
 }
