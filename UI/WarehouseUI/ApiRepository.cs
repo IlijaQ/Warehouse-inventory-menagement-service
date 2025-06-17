@@ -182,8 +182,8 @@ namespace WarehouseUI
 
         public async Task<bool> DeleteProductAsync(string productIdInString)
         {
-            HttpResponseMessage response = await _httpClient.GetAsync($"api/warehouse/DeleteProduct/{productIdInString}");
-
+            HttpResponseMessage response = await _httpClient.DeleteAsync($"api/warehouse/DeleteProduct/{productIdInString}");
+            
             if (response.IsSuccessStatusCode)
             {
                 return true;

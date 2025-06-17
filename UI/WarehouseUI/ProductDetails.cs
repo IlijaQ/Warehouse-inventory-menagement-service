@@ -95,14 +95,14 @@ namespace WarehouseUI
         private void btnEdit_Click(object sender, EventArgs e)
         {
             ProductUpdate dialog = new ProductUpdate(SelectedProduct, this, MainForm);
-
+            dialog.ShowDialog();
         }
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                $"Are you sure you want to delete {SelectedProduct.Name} from inventory?\r\nProduct Id: {SelectedProduct.Id}",
-                $"Delete {SelectedProduct.Id}",
+                $"Are you sure you want to remove '{SelectedProduct.Name}' from inventory?\r\nProduct Id: {SelectedProduct.Id}",
+                $"Delete Id {SelectedProduct.Id}",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning
                 );
@@ -113,12 +113,17 @@ namespace WarehouseUI
 
                 if (success)
                 {
+                    MainForm.Refresh();
+
                     MessageBox.Show(
-                        $"Successfully removed {SelectedProduct.Name} from inventory.\r\nProduct Id: {SelectedProduct.Id}",
-                        $"Delete {SelectedProduct.Id}",
+                        $"Successfully removed '{SelectedProduct.Name}' from inventory.\r\nProduct Id: {SelectedProduct.Id}",
+                        $"Deleted Id {SelectedProduct.Id}",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                         );
+                    MainForm.ResetAllFilters();
+                    MainForm.SearchProducts();
+                    this.Close();
                 }
                 else
                 {
