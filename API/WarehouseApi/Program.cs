@@ -13,7 +13,7 @@ builder.Services.AddDbContext<WarehouseContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddSignalR();
-builder.Services.AddTransient<NotificationService>();
+builder.Services.AddSingleton<INotificationService, NotificationService>();
 builder.Services.AddDbContext<SignalRWarehouseContext>();
 
 

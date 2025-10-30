@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using WarehouseApi.DataTransferClasses;
 
 namespace WarehouseApi.Hubs
 {
@@ -11,9 +12,9 @@ namespace WarehouseApi.Hubs
             _hubContext = hubContext;
         }
 
-        public async Task NotifyUsers(string message)
+        public async Task AddNewItemAsync(ProductData item, CancellationToken cancellationToken)
         {
-            await _hubContext.Clients.All.SendAsync("RecieveMessage", message);
+            await _hubContext.Clients.All.SendAsync("RecieveNewItem", item, cancellationToken);
         }
     }
 }

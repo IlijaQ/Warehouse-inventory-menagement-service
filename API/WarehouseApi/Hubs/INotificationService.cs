@@ -1,7 +1,9 @@
-﻿namespace WarehouseApi.Hubs
+﻿using WarehouseApi.DataTransferClasses;
+
+namespace WarehouseApi.Hubs
 {
     public interface INotificationService
     {
-        Task NotifyUsers(string message);
+        Task AddNewItemAsync(ProductData item, CancellationToken cancellationToken);
     }
 }
